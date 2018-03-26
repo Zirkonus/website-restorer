@@ -1,0 +1,26 @@
+<div class="list-tree-block">
+    <ul>
+        <li data-ng-repeat="item in vm.listData | limitTo: vm.listLimit track by $index ">
+
+            <tree-branch class="tree-branch-position"
+                         branch-deep="vm.currentLevel"
+                         toggle-value="vm.controlToggle[$index]"
+                         type-toggleable="vm.isNotEmptyArray(item.children)"></tree-branch>
+
+            <div class="list-item-container"
+                 data-ng-style="{left: vm.calcListItemOffset(vm.currentLevel) + 'px'}">
+                <menu-expander menu-title="item.title"
+                               menu-expander-config="vm.menuExpanderConfig"
+                               param-data="{dataObj: item}"
+                               opened="vm.menuExpanderOpenIndex === $index"
+                               data-ng-click="vm.menuExpanderOpen($index)"></menu-expander>
+            </div>
+            <!--data-ng-show="vm.controlToggle[$index].isOpened"-->
+            <list-tree data-ng-if="item.children && vm.controlToggle[$index].isOpened"
+                       list-data="item.children"
+                       current-level="+vm.currentLevel + 1"
+                       menu-expander-config="vm.menuExpanderConfig"></list-tree>
+
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,185 @@
+@import "scss/_mixin";
+
+.add-page-dialog-block {
+
+  .add-page-dialog-container {
+    width: calc(100vw - 40px);
+    max-width: 500px;
+    padding: 55px 20px 50px 20px;
+    line-height: $line-height-normal;
+    @include tablet {
+      width: calc(100vw - 40px);
+      padding: 75px 95px 85px 95px;
+      max-width: 900px;
+    }
+    @include laptop {
+      width: 900px;
+      padding: 115px 170px 135px 170px;
+    }
+
+    .dialog-title {
+      text-align: center;
+      font-size: 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      text-align: center;
+      color: #00a3ff;
+      margin: 0 0 40px 0;
+      @include tablet {
+        margin: 0 0 50px 0;
+        font-size: 30px;
+      }
+    }
+
+    .form-field-container {
+      margin: 0 0 10px 0;
+      text-align: left;
+      position: relative;
+      @include tablet() {
+        margin: 0 0 25px 0;
+      }
+
+      .field-title {
+        display: inline-block;
+        font-size: 14px;
+        color: #6f7a87;
+        margin: 0 0 5px 0;
+        @include tablet {
+          font-size: 16px;
+          margin: 0 0 12px 0;
+        }
+      }
+
+      .field-input-container {
+
+        input {
+          display: block;
+          width: 100%;
+          height: 38px;
+          padding: 0 30px 0 15px;
+          background-color: #fff;
+          border: none;
+          outline: none;
+          box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.1);
+          font-size: 14px;
+          color: #36444d;
+          transition: $hover-transition-time;
+          @include tablet {
+            height: 54px;
+            padding: 0 60px 0 30px;
+            font-size: 16px;
+          }
+
+          &:focus {
+            box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.2);
+          }
+
+        }
+
+        select {
+          display: inline-block;
+          width: 100%;
+          height: 38px;
+          padding: 0 30px 0 15px;
+          background-color: #fff;
+          border: none;
+          outline: none;
+          box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.1);
+          font-size: 14px;
+          color: #36444d;
+          -ms-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          transition: $hover-transition-time;
+          background-image: url('/assets/img/select-arrow.png');
+          background-position: calc(100% - 26px) center;
+          background-repeat: no-repeat;
+          @include tablet {
+            height: 54px;
+            padding: 0 60px 0 30px;
+            font-size: 16px;
+          }
+          &::-ms-expand {
+            display: none;
+          }
+          &:focus {
+            box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.2);
+          }
+
+          &[disabled] {
+            background-color: #dbe4f1;
+            box-shadow: 0px 14px 50px 0px rgba(197, 213, 235, 0.2);
+            color: #90a4ae;
+          }
+
+        }
+
+      }
+
+    }
+
+    .check-base-container {
+
+      .check-base-item {
+        height: 54px;
+        line-height: 54px;
+        @include clearfix();
+
+        .check-group {
+          cursor: pointer;
+        }
+
+        .icon-icon-17, .icon-icon-18 {
+          display: inline-block;
+          margin-right: 24px;
+          vertical-align: middle;
+          color: #00a3ff;
+          font-size: 15px;
+        }
+
+        .check-title {
+          vertical-align: middle;
+          font-size: 16px;
+          color: #6f7a87;
+        }
+
+        .form-field-container {
+          display: inline-block;
+          width: calc(100% - 125px);
+          float: right;
+        }
+
+      }
+
+
+    }
+
+    .button-container {
+      margin-top: 80px;
+      @include clearfix();
+
+      .button-accept {
+        float: right;
+        @include button-container(100px, 48px);
+        font-size: 14px;
+        color: #fff;
+        background-color: #00a3ff;
+        cursor: pointer;
+        @include tablet {
+          @include button-container(164px, 54px);
+        }
+        @include laptop {
+          &:hover {
+            background-color: #0092e5;
+          }
+        }
+        &.disabled {
+          background-color: #c2e1f1;
+          cursor: auto;
+        }
+      }
+
+    }
+
+  }
+}

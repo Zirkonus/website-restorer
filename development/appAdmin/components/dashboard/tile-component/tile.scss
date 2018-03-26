@@ -1,0 +1,54 @@
+@import "scss/_mixin";
+
+.tile {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  width: 340px;
+  height: 240px;
+  max-height: 240px;
+  background: #fff;
+  padding-left: 117px;
+  padding-top: 80px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(152, 125, 254, 0.1);
+  @include laptop {
+    margin-bottom: 0;
+  }
+
+  .tile-text-wrapper {
+    position: relative;
+
+    .tile-value {
+      margin: 0;
+      font-size: 55px;
+      font-weight: 600;
+      line-height: 55px;
+      color: #36444d;
+      font-family: "Open Sans", sans-serif;
+      margin-bottom: 20px;
+      .unit {
+        font-size: 36px;
+        line-height: 36px;
+      }
+    }
+
+    .tile-name {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 100;
+      line-height: 18px;
+      color: #90a4ae;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    &:before {
+      position: absolute;
+      display: block;
+      font-size: 46px;
+      line-height: 46px;
+      top: 5px;
+      left: -84px;
+    }
+  }
+}

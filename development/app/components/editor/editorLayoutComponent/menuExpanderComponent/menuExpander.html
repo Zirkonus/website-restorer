@@ -1,0 +1,19 @@
+<div class="menu-expander-block"
+     data-ng-class="{'root-item': vm.rootItem}">
+    <div class="menu-expander-container"
+         data-ng-class="{'opened': vm.opened}">
+        <div class="menu-overflow-container">
+            <div class="menu-container">
+                <span data-ng-repeat="menuItem in vm.menuExpanderConfig"
+                      data-ng-class="[menuItem.icon, {'circle-icon': menuItem.type === 'circle-btn'}]"
+                      data-ng-click="menuItem.callback(vm.paramData)">
+                    <span>[[menuItem.title]]</span>
+                </span>
+            </div>
+        </div>
+        <div class="title-container">
+            <span data-ng-bind-html="vm.sce.trustAsHtml(vm.menuTitle)"
+                  data-ng-click="vm.actionMobile()"></span>
+        </div>
+    </div>
+</div>

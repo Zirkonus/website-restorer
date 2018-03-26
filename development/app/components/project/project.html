@@ -1,0 +1,54 @@
+<div class="project-block">
+    <div class="project-control-panel">
+        <div class="wrapper">
+            <div class="project-info-container">
+                <div class="project-heading-container">
+                    <a ui-sref="projects" class="return-link-container">
+                        <span class="icon-icon-35"></span>
+
+                    </a>
+                    <h1>Project Manager</h1>
+                    <div class="project-control-container">
+                        <a ui-sref="projectEdit({id: vm.projectData.id})" class="icon-edit-container">
+                            <span class="icon-icon-09"></span>
+                        </a>
+                        <span data-ng-click="vm.deleteProjectConfirm()" class="icon-icon-26">
+                            <span class="back-layer"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="project-title">[[vm.projectData.niche]]</div>
+                <div class="project-info-container" data-ng-class="{'open': vm.projectInfoOpen}">
+                    <a class="project-domain" href="[[vm.projectData.domain]]" target="_blank">[[vm.projectData.domain]]</a>
+                    <div class="project-info-title" data-ng-click="vm.projectInfoOpen = !vm.projectInfoOpen">
+                        [[vm.lang.get('project_detail_more_info')]]<span class="icon-icon-16"></span>
+                    </div>
+                    <ul class="project-info-content ng-cloak" ng-show="vm.projectInfoOpen">
+                        <li>[[vm.lang.get('project_detail_fetch_level_deep')]]: [[vm.projectData.fetch_level_deep]]</li>
+                        <li>[[vm.lang.get('project_detail_ftp_address')]]: [[vm.projectData.ftp_address]]</li>
+                        <li>[[vm.lang.get('project_detail_ftp_port')]]: [[vm.projectData.ftp_port]]</li>
+                        <li>[[vm.lang.get('project_detail_ftp_user')]]: [[vm.projectData.ftp_username]]</li>
+                        <li>[[vm.lang.get('project_detail_ftp_pass')]]: *******</li>
+                        <li>[[vm.lang.get('project_detail_ftp_folder')]]: [[vm.projectData.ftp_folder]]</li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="project-navigation-container">
+                <li>
+                    <a ui-sref="project.all" ui-sref-active="active" class="project-navigation-item">[[vm.lang.get('project_versions_list_nav_all')]]</a>
+                </li>
+                <li>
+                    <a ui-sref="project.inProgress" ui-sref-active="active" class="project-navigation-item">[[vm.lang.get('project_versions_list_nav_in_progress')]]</a>
+                </li>
+                <li>
+                    <a ui-sref="project.restored" ui-sref-active="active" class="project-navigation-item">[[vm.lang.get('project_versions_list_nav_restored')]]</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="project-versions-list-panel">
+        <div class="wrapper">
+            <ui-view project-id="vm.projectData.id" ftp-enabled="vm.isFtpSettingsFull()"></ui-view>
+        </div>
+    </div>
+</div>

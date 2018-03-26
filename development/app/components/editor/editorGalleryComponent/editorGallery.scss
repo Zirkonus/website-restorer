@@ -1,0 +1,234 @@
+@import "scss/_mixin";
+
+.editor-gallery-block {
+
+  .button-container {
+    padding: 22px 0 0 0;
+    @include clearfix();
+    @include tablet {
+      padding: 0;
+    }
+
+    .button-add {
+      @include button-add-mobile();
+      float: right;
+      background-color: #00A3FF;
+      color: #fff;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      @include tablet {
+        @include button-container();
+        margin-top: -71px;
+      }
+      @include laptop {
+        &:hover {
+          background-color: #0092e5;
+        }
+      }
+      & > span:first-child {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 28px;
+        @include tablet {
+          font-size: 26px;
+        }
+      }
+      & > span:last-child {
+        position: relative;
+        vertical-align: middle;
+        padding-left: 10px;
+        display: none;
+        @include tablet {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+
+
+  .gallery-container {
+    padding: 22px 0 80px 0;
+    @include clearfix();
+    @include line-height-local(0);
+
+    @include tablet {
+      padding: 55px 0 140px 0;
+    }
+
+    .gallery-col {
+      display: inline-block;
+      float: left;
+      width: 100%;
+      margin: 0 0 20px 0;
+      @include mobile-large {
+        width: calc((100% - 20px) / 2);
+        margin: 0 20px 20px 0;
+      }
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      @include tablet {
+        width: calc((100% - 40px) / 3);
+        margin: 0 20px 20px 0;
+        &:nth-child(2n) {
+          margin-right: 20px;
+        }
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+      @include laptop {
+        width: calc((100% - 50px) / 4);
+        margin: 0 16.6px 22px 0;
+        &:nth-child(2n) {
+          margin-right: 16.6px;
+        }
+        &:nth-child(3n) {
+          margin-right: 16.6px;
+        }
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+      }
+
+      .gallery-item {
+        position: relative;
+        padding-bottom: 114.285%; // aspect radio: 280x320
+        box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.1);
+
+        //background-image: url('/assets/img/test2.jpg');
+        background-color: rgb(144, 164, 174);
+        //background-image: url('https://cdn1.iconfinder.com/data/icons/users-39/24/298-16.png');
+        //background-image: url('http://image.prntscr.com/image/001111d1ab7f4532b3e25fb8aedb9e74.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+
+
+        .control-layer {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          transition: $hover-transition-time;
+
+          &.open {
+            background-color: rgba(54, 68, 77, 0.8);
+          }
+
+          @include laptop {
+            @include content-position-center();
+            position: absolute;
+            opacity: 0;
+            &:hover {
+              background-color: rgba(54, 68, 77, 0.8);
+              opacity: 1;
+            }
+          }
+
+          .control-container {
+            display: none;
+            white-space: nowrap;
+            @include laptop {
+              display: block;
+            }
+
+            & > span {
+              position: relative;
+              display: inline-block;
+              font-size: 40px;
+              margin: 0 5px;
+              cursor: pointer;
+              transition: $hover-transition-time;
+
+              &::after {
+                position: absolute;
+                content: "";
+                top: 5%;
+                left: 5%;
+                width: 90%;
+                height: 90%;
+                background-color: #fff;
+                z-index: -10;
+                border-radius: 50%;
+              }
+
+              &.icon-icon-31 {
+                color: #9966ff;
+                &:hover {
+                  color: #987dfe;
+                }
+              }
+              &.icon-icon-29 {
+                color: #27a8f8;
+                &:hover {
+                  color: #64c0f8;
+                }
+              }
+              &.icon-icon-28 {
+                color: #f4d01a;
+                &:hover {
+                  color: #fbe04b;
+                }
+              }
+              &.icon-icon-26 {
+                color: #ff0245;
+                &:hover {
+                  color: #fc5253;
+                }
+              }
+            }
+          }
+
+          .dropdown-menu {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            transition: $hover-transition-time;
+            @include laptop {
+              display: none;
+            }
+            &.opened {
+              .icon-container {
+                background-color: transparent;
+              }
+            }
+
+            .icon-container {
+              display: inline-block;
+              width: 34px;
+              height: 34px;
+              border-radius: 50%;
+              background-color: rgba(54, 68, 77, 0.3);
+              @include content-position-center();
+              .icon-icon-14 {
+                font-size: 18px;
+                color: #fff;
+                cursor: pointer;
+                transition: $hover-transition-time;
+              }
+            }
+
+            .dropdown-list {
+              box-shadow: none;
+              top: 7px;
+              right: 30px;
+            }
+
+          }
+
+        }
+
+
+
+      }
+
+    }
+
+  }
+
+}
+

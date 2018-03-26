@@ -1,0 +1,38 @@
+@import "scss/_mixin";
+
+.scroll-top-button-block {
+
+  .icon-icon-35 {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    font-size: 46px;
+    color: #afc4e3;
+    cursor: pointer;
+    transition: $hover-transition-time;
+    box-shadow: 0px 0px 40px 0px rgba(175, 196, 227, 0.1);
+    @media (min-width: 1340px) {
+      right: calc((100% - 1200px) / 2 - 50px);
+    }
+    @include laptop {
+      &:hover {
+        color: #98a8c0;
+      }
+    }
+    .layer {
+      display: inline-block;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      border-radius: 50%;
+      z-index: -10;
+      background-color: #fff;
+    }
+    &.ng-hide {
+      opacity: 0;
+    }
+  }
+
+}

@@ -1,0 +1,8 @@
+<div class="tool-tip-block" ng-click="$event.preventDefault(); $event.stopPropagation()">
+    <ng-transclude></ng-transclude>
+
+    <div class="tool-tip-container" data-ng-class="{'tool-tip-opened': vm.toolTipOpened}">
+        [[vm.toolTip]]
+    </div>
+
+</div>

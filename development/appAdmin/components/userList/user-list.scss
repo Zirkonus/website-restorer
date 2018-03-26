@@ -1,0 +1,143 @@
+.user-list {
+
+  .user-list-table {
+    position: relative;
+    width: 100%;
+    border-spacing: 0 4px;
+  }
+  table.user-list-table  th,
+  table.user-list-table  td {
+    text-align: left;
+  }
+  table.user-list-table  td {
+    background: #fff;
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 40px;
+    color: #36444d;
+    font-family: "Open Sans", sans-serif;
+  }
+  table.user-list-table  th {
+    font-size: 12px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 12px;
+    padding: 10px 0;
+    color: #7793a1;
+  }
+
+  table.user-list-table  .initials {
+    width: 9.9%;
+    text-align: center;
+    span {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin: 0 auto;
+      background: #e9f8e8;
+      color: #6ec813;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 40px;
+      font-family: "Open Sans Semibold", sans-serif;
+      text-transform: uppercase;
+    }
+  }
+  table.user-list-table  .name {
+    width: 18.2%;
+  }
+  table.user-list-table  .email {
+    width: 19%;
+  }
+  table.user-list-table  .credits {
+    width: 9.7%;
+  }
+  table.user-list-table  .disk-space {
+    width: 14.6%;
+  }
+  table.user-list-table  .projects {
+    width: 11.6%;
+  }
+  table.user-list-table .right-cell {
+    text-align: right !important;
+  }
+
+  table.user-list-table .btns {
+    padding: 14px 0 !important;
+    line-height: 16px;
+    overflow: hidden;
+    width: 180px;
+  }
+  .o-btn {
+    position: relative;
+    cursor: pointer;
+    font-size: 32px;
+    margin: 0 3px;
+  }
+  .o-btn.purple {
+    color: #9966ff;
+    &:hover {
+      color: #987dfe;
+    }
+  }
+  .o-btn.green {
+    color: #7bcb29;
+    &:hover {
+      color: #92dd4a;
+    }
+  }
+  .o-btn.red {
+    color: #ff0245;
+    &:hover {
+      color: #fc5253;
+    }
+  }
+  .btns-wrapper {
+    position: relative;
+    left: 0px;
+    text-align: center;
+  }
+  .btns-wrapper.ng-hide {
+    left: 185px;
+  }
+  .btns-wrapper.ng-hide-add,
+  .btns-wrapper.ng-hide-remove {
+    transition: all 0.35s;
+  }
+
+  .add-new-user {
+    position: relative;
+    float: right;
+    text-align: center;
+    font-size: 16px;
+    font-family: Montserrat;
+    line-height: 54px;
+    width: 164px;
+    color: #fff;
+    background: #00a3ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 49px;
+
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+
+    &:hover {
+      background: #0092e5;
+    }
+
+    span:before {
+      content: '+';
+      display: block;
+      position: absolute;
+      font-size: 24px;
+      top: 0;
+      left: 12px;
+    }
+  }
+
+}

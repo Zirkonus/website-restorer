@@ -1,0 +1,19 @@
+<div class="error-dialog-block">
+    <dialog-body open-control="vm.settings.openControl"
+                 close-dialog="vm.confirmReject()">
+        <div class="error-dialog-container">
+            <div class="error-title-container" ng-class="{'error-warning': vm.settings.type === 'warning'}">
+                <span class="error-title"><span class="icon-icon-45"></span>[[vm.settings.title]]</span>
+            </div>
+            <div class="error-message">[[vm.settings.message]]</div>
+            <div>
+                <div class="button-confirm"
+                     ng-if="vm.settings.confirmButtonEnable"
+                     data-ng-click="vm.settings.confirmCallback(); vm.confirmReject()">[[vm.settings.confirmButtonText]]</div>
+                <div class="button-reject"
+                     ng-if="vm.settings.rejectButtonEnable"
+                     data-ng-click="vm.confirmReject()">[[vm.settings.rejectButtonText]]</div>
+            </div>
+        </div>
+    </dialog-body>
+</div>

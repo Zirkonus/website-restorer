@@ -1,0 +1,82 @@
+@mixin menu-switcher($width, $height, $line-width, $line-height, $line-offset, $lines-offset-top, $title-offset-bottom, $color,
+                    $background-color, $hover-background-color, $hover-time,
+                    $width-a, $height-a, $line-width-a, $line-height-a, $line-offset-a, $lines-offset-top-a, $title-offset-bottom-a, $color-a) {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;
+    transition: $hover-time;
+    background-color: $background-color;
+    width: $width;
+    height: $height;
+    .line-top, .line-middle, .line-bottom {
+        transition: all 0.2s ease-in;
+        position: absolute;
+        width: $line-width;
+        height: $line-height;
+        background-color: $color;
+    }
+    &.menu-open {
+        .line-top, .line-middle, .line-bottom {
+            left: ($width - $line-width) / 2;
+        }
+        .line-top {
+            top: $lines-offset-top;
+        }
+        .line-middle {
+            top: $lines-offset-top + ($line-height + $line-offset);
+        }
+        .line-bottom {
+            top: $lines-offset-top + 2 * ($line-height + $line-offset);
+        }
+    }
+    &.menu-close {
+        width: $width-a;
+        height: $height-a;
+        .line-top, .line-middle, .line-bottom {
+            width: $line-width-a;
+            height: $line-height-a;
+            top: 12px + $lines-offset-top-a;
+            left: ($width-a - $line-width-a) / 2;
+            background-color: $color-a;
+        }
+        .line-top {
+            transform: rotate(-45deg);
+        }
+        .line-middle {
+            transform: rotate(-45deg);
+        }
+        .line-bottom {
+            transform: rotate(45deg);
+        }
+    }
+    &.menu-close {
+        .title {
+            font-size: 0;
+        }
+    }
+    &:hover {
+        background-color: $hover-background-color;
+    }
+
+}
+
+
+
+.menu-switcher {
+    //
+    //width: 20px;
+    //height: 20px;
+    //display: inline-block;
+    //background-color: #00a3ff;
+
+
+    //@mixin menu-switcher($width, $height, $line-width, $line-height, $line-offset, $lines-offset-top, $title-offset-bottom, $color,
+    //                $background-color, $hover-background-color, $hover-time,
+    //                $width-a, $height-a, $line-width-a, $line-height-a, $line-offset-a, $lines-offset-top-a, $title-offset-bottom-a, $color-a) {
+
+    @include menu-switcher(25px, 24px, 25px, 2px, 3px, 6px, 6px, #36444d, transparent, transparent, 0.5s,
+            25px, 24px, 19px, 1px, 3px, 0px, 6px, #fff);
+
+}

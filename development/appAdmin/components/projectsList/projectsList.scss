@@ -1,0 +1,176 @@
+@import "scss/_mixin";
+
+.projects-block {
+
+  .projects-heading-container {
+    @include clearfix();
+    padding-top: 22px;
+    padding-bottom: 22px;
+    color: #fff;
+    @include tablet {
+      padding-top: 45px;
+      padding-bottom: 40px;
+    }
+
+    & > h1 {
+      margin: 8px 0 0 0;
+      float: left;
+      @include tablet {
+        margin: 12px 0 0 0;
+      }
+    }
+    & > .button-add {
+      @include button-add-mobile();
+      float: right;
+      background-color: #00A3FF;
+      color: #fff;
+      @include tablet {
+        @include button-container();
+      }
+      @include laptop {
+        &:hover {
+          background-color: #0092e5;
+        }
+      }
+      & > span:first-child {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 28px;
+        @include tablet {
+          font-size: 26px;
+        }
+      }
+      & > span:last-child {
+        position: relative;
+        vertical-align: middle;
+        padding-left: 10px;
+        display: none;
+        @include tablet {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .projects-list-container {
+    @include clearfix();
+
+    .project-item {
+      display: block;
+      width: 100%;
+      margin-bottom: 30px;
+      box-shadow: 0px 14px 50px 0px rgba(152, 125, 254, 0.14);
+      transition: 0.2s;
+      @include tablet {
+        float: left;
+        width: 46.22%;
+        margin-right: 7.55%;
+        margin-bottom: 50px;
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+      @include laptop {
+        width: 29.06%;
+        margin-right: 6.41%;
+        &:nth-child(2n) {
+          margin-right: 6.41%;
+        }
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+        &:hover {
+          box-shadow: 0px 14px 50px 0px rgba(152, 125, 254, 0.3);
+          .project-url-container {
+            background-color: #8870e4;
+          }
+        }
+      }
+    }
+
+    .project-url-container {
+      padding: 0 35px;
+      height: 64px;
+      background-color: #9966ff;
+      text-align: center;
+      transition: 0.2s;
+      @include tablet {
+        height: 84px;
+      }
+      & > div {
+        display: block;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        vertical-align: middle;
+        color: #feffff;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 64px;
+        white-space: nowrap;
+        @include tablet {
+          line-height: 84px;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .project-info-container {
+      padding: 27px 28px;
+      background-color: #fff;
+      @include tablet {
+        padding: 40px 35px;
+      }
+      & > div {
+        font-size: 14px;
+        color: #36444d;
+        margin-bottom: 20px;
+        @include tablet {
+          margin-bottom: 30px;
+          font-size: 16px;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+        span {
+          display: inline-block;
+          margin-right: 8px;
+          color: #6f7a87;
+        }
+      }
+    }
+  }
+
+  .projects-more-container {
+    margin-bottom: 30px;
+    text-align: center;
+    @include tablet {
+      margin-bottom: 50px;
+    }
+    .button-more {
+      @include button-container();
+      background-color: #fff;
+      color: #0099ff;
+      box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.1);
+      cursor: pointer;
+      @include laptop {
+        &:hover {
+          background-color: #00a3ff;
+          box-shadow: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .history-heading-container {
+    h1 {
+      margin: 5px 0 25px 0;
+      @include tablet {
+        margin: 10px 0 25px 0;
+      }
+    }
+  }
+
+
+}

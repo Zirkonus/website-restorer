@@ -1,0 +1,41 @@
+@import "scss/_mixin";
+
+.dialog-body-block {
+
+  .dialog-back-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(54, 68, 77, 0.5);
+    transition: $hover-transition-time;
+    @include fade-ng-if();
+    //overflow-y: scroll;
+  }
+
+  .dialog-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ebeff3;
+
+    .icon-icon-15 {
+      position: absolute;
+      top: 11px;
+      right: 11px;
+      font-size: 15px;
+      color: #36444d;
+      cursor: pointer;
+      @include tablet {
+        top: 22px;
+        right: 22px;
+        font-size: 19px;
+      }
+    }
+
+  }
+
+}

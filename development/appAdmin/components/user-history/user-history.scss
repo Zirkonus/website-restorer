@@ -1,0 +1,72 @@
+@import "scss/_mixin";
+
+.user-history {
+
+  .user {
+    position: relative;
+    padding: 22px 22px 46px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(152, 125, 254, 0.1);
+    margin-bottom: 45px;
+    @include clearfix();
+  }
+
+  .user-avatar,
+  .user-info {
+    position: relative;
+    float: left;
+  }
+
+  .user-avatar {
+    margin-right: 35px;
+  }
+  .user-avatar > span:before {
+    font-size: 100px;
+    color: #e7f5fe;
+  }
+
+  .user-info {
+
+    .label {
+      position: relative;
+      font-size: 14px;
+      line-height: 32px;
+      font-family: "Open Sans", sans-serif;
+      color: #7793a1;
+    }
+    .value {
+      position: relative;
+      font-size: 16px;
+      line-height: 32px;
+      font-family: "Open Sans", sans-serif;
+      color: #36444d;
+    }
+
+    .other-info {
+      position: relative;
+      @include clearfix();
+
+      .wrap {
+        position: relative;
+        float: left;
+        margin-right: 80px;
+      }
+    }
+  }
+
+  .icon-container {
+    position: absolute;
+    right: 20px;
+    padding: 5px;
+    cursor: pointer;
+    span:before {
+      font-size: 20px;
+      color: #00a3ff;
+    }
+  }
+  .dropdown-menu-block .dropdown-list {
+    right: 50px;
+    top: auto;
+  }
+
+}

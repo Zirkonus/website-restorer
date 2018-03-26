@@ -1,0 +1,34 @@
+<div class="dashboard">
+
+	<div class="wrapper">
+		<!-- page title -->
+		<h1 class="admin-title">
+			[[vm.lang.get('admin_dashboard_general_title')]]
+		</h1>
+		<!-- page title end -->
+
+		<!-- general info list -->
+		<div class="general-info">
+
+			<tile-tpl icon-color="'#f4d01a'"
+			          tile-icon="'icon-icon-12'"
+			          tile-name="[[vm.lang.get('admin_dashboard_users')]]"
+			          tile-value="vm.generalInfo.users"></tile-tpl>
+			<tile-tpl icon-color="'#00a3ff'"
+			          tile-icon="'icon-icon-08'"
+			          tile-name="[[vm.lang.get('admin_dashboard_projects_uploaded')]]"
+			          tile-value="vm.generalInfo.projects"></tile-tpl>
+			<tile-tpl icon-color="'#ff0245'"
+			          tile-icon="'icon-icon-13'"
+			          tile-name="[[vm.lang.get('admin_dashboard_disk_space')]]"
+			          tile-value="vm.generalInfo.files"></tile-tpl>
+		</div>
+		<!-- general info list end -->
+
+		<div class="btns-block">
+			<button class="view-all-users"
+			        data-ng-click="vm.location.path('/user-list')">View All Users</button>
+		</div>
+
+	</div>
+</div>

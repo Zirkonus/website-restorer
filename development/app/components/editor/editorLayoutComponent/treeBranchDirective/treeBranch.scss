@@ -1,0 +1,108 @@
+@import "scss/_mixin";
+
+.tree-branch-block {
+  display: inline-block;
+  height: 48px;
+  line-height: 48px;
+  @include tablet {
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .branch-line {
+    display: inline-block;
+    height: 2px;
+    //width: 100px;
+    background-color: #c7d5e9;
+    vertical-align: middle;
+    margin: 0 15px 0 20px;
+    white-space: nowrap;
+    @include clearfix();
+    @include tablet {
+      margin: 0 37px;
+    }
+
+    .branch-level {
+      float: left;
+      display: inline-block;
+    }
+    .branch-type-middle {
+      margin: -4px 0 0 20px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #c7d5e9;
+      background-color: #ebeff3;
+      border-radius: 50%;
+      @include tablet {
+        margin: -4px 0 0 32px;
+      }
+      &:first-child {
+        margin-left: -5px;
+      }
+    }
+    .branch-type-last {
+      margin: -4px 0 0 20px;
+      width: 10px;
+      height: 10px;
+      background-color: #afc4e3;
+      border-radius: 50%;
+      @include tablet {
+        margin: -5px 0 0 32px;
+        width: 12px;
+        height: 12px;
+      }
+      &:first-child {
+        margin-left: -5px;
+        @include tablet {
+          margin-left: -6px;
+        }
+      }
+      &.branch-toggle {
+        position: relative;
+        cursor: pointer;
+        width: 11px;
+        height: 11px;
+        background-color: #64c0f8; //#00A3FF;
+        @include tablet {
+          width: 13px;
+          height: 13px;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 5px;
+          left: 2px;
+          width: 7px;
+          height: 1px;
+          background-color: #fff;
+          @include tablet {
+            top: 6px;
+            left: 2px;
+            width: 9px;
+            height: 1px;
+          }
+        }
+
+        &.is-closed {
+          &:after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            width: 1px;
+            height: 7px;
+            background-color: #fff;
+            @include tablet {
+              top: 2px;
+              left: 6px;
+              width: 1px;
+              height: 9px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

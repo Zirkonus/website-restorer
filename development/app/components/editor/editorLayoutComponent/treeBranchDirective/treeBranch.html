@@ -1,0 +1,8 @@
+<div class="tree-branch-block">
+    <div class="branch-line">
+        <span class="branch-level"
+              data-ng-repeat="level in getLeverArr(branchDeep) track by $index"
+              data-ng-class="{'branch-type-last': $last, 'branch-type-middle': !$last, 'branch-toggle': typeToggleable, 'is-closed': !toggleValue.isOpened}"
+              data-ng-click="toggleChildLevel($last)"></span>
+    </div>
+</div>

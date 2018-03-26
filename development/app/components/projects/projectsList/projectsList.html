@@ -1,0 +1,78 @@
+<div class="projects-block" click-outside-closest="vm.toolTipOpenedIndex = null" closest-selector=".tool-tip-block">
+    <div class="projects-heading-container">
+        <h1>[[vm.lang.get('dashboard_projects_heading')]]</h1>
+        <a ui-sref="projectAdd" class="button-add">
+            <span>+</span><span>[[vm.lang.get('dashboard_projects_button_new')]]</span>
+        </a>
+    </div>
+    <div class="projects-list-container">
+        <div class="project-item" data-ng-repeat="project in vm.projectsListData | limitTo: vm.projectsLimit">
+            <div  class="project-url-container">
+                <div>[[project.domain]]</div>          
+                <a ui-sref="project.all({id: project.id})" class="project-manage-project-button">
+                        <span>Manage Project</span>
+                </a>                                  
+            </div>
+            <div class="project-info-container">
+                <div class="date-version">
+                    <div>Date Versions Restored</div>
+                    <div class="status-container">
+                        <div>
+
+                            <div>[[(project.sites_in_progress) ? project.sites_in_progress : "0"]]</div>
+
+                            <div class="status">in progress</div>
+                        </div>
+                        <div>
+                            <div>[[(project.sites_uploaded) ? project.sites_uploaded : "0"]]</div>
+                            <div class="status">complete</div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <span>[[vm.lang.get('dashboard_projects_niche_title')]]</span>[[(project.niche) ? project.niche : "none"]]
+                </div>
+                <div>
+                    <span>[[vm.lang.get('dashboard_projects_info_version')]]</span>[[project.sites_total]]
+                </div>
+                <div>
+                    <span>[[vm.lang.get('dashboard_projects_info_fetch_level')]]</span>[[project.fetch_level_deep]]
+                </div>
+                <div>
+                    <span>[[vm.lang.get('dashboard_projects_info_data')]]</span>[[project.files_size]] Mb
+                </div>
+                <br/>
+
+                <div class="data-info">
+                    <span>[[vm.lang.get('dashboard_projects_ftp_data')]] [[(!!project.upload_size) ? project.upload_size : "0"]] Mb</span>
+                    <div>[[(!!project.upload_date) ? "(Uploaded to server "+project.upload_date+")" : "(Not yet uploaded to server)"]]</div>
+                </div>
+                <div class="data-info">
+                    <span>[[vm.lang.get('dashboard_projects_zip_data')]] [[(!!project.download_size) ? project.download_size : "0"]] Mb</span>
+                    <div>[[(!!project.download_date) ? "(Downloaded "+project.download_date+")" : "(Not downloaded)"]]</div>
+                </div>
+
+                <br/>
+                <!-- <div class="project-manage-project-button-container">
+                    <a ui-sref="project.all({id: project.id})" class="project-manage-project-button">
+                        <span>Manage Project</span>
+                    </a>
+                </div> -->
+                <div>
+                    <a class="project-domain" href="[[project.domain]]" target="_blank" custom-link-directive>[[project.domain]]</a>
+                </div>
+                <span class="project-info-status-container" tool-tip="project.last_message" tool-tip-opened="vm.toolTipOpenedIndex === $index">
+                    <span class="project-info-status"
+                          ng-class="vm.porjectsStatuses[project.last_status].labelClass" ng-click="vm.toggleToolTip($index)">
+                        <span>[[vm.porjectsStatuses[project.last_status].labelText]]</span>
+                <span class="icon-icon-04"></span>
+                </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="projects-more-container" data-ng-if="vm.showProjectMoreButton()">
+        <div class="button-more" data-ng-click="vm.increaseLimit()">[[vm.lang.get('button_more')]]</div>
+    </div>
+</div>

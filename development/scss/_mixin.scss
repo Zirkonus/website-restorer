@@ -1,0 +1,148 @@
+//
+// Responsive design media queries
+// -Mobile first principle-
+//
+
+$mobile-large-width: 480px;
+$tablet-width: 768px;
+$laptop-width: 1024px;
+$desktop-width: 1200px;
+
+@mixin mobile-large {
+  @media (min-width: #{$mobile-large-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{$laptop-width}) {
+    @content;
+  }
+}
+
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+//
+// Style mixin
+//
+
+$hover-transition-time: 0.2s;
+$line-height-normal: 1.42857143;
+
+@mixin line-height-local ($line-height) {
+  line-height: $line-height;
+  & > * {
+    line-height: $line-height-normal;
+  }
+}
+
+@mixin content-position-center () {
+  position: relative;
+  & > * {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin clearfix () {
+  &::before, &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin fade-ng-if () {
+  &.ng-enter {
+    opacity:0;
+  }
+  &.ng-enter.ng-enter-active {
+    opacity:1;
+  }
+  &.ng-leave {
+    opacity:1;
+  }
+  &.ng-leave.ng-leave-active {
+    opacity:0;
+  }
+}
+
+
+
+
+//
+// Components mixin
+//
+
+@mixin button-container ($width: 164px, $height: 54px) {
+  display: inline-block;
+  border-radius: 8px;
+  width: $width;
+  height: $height;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  transition: all 0.2s;
+  text-align: center;
+  @include line-height-local($height);
+}
+
+
+@mixin button-mobile-container () {
+  display: inline-block;
+  border-radius: 8px;
+  width: 150px;
+  height: 48px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  transition: all 0.2s;
+  text-align: center;
+  @include line-height-local(48px);
+}
+
+
+@mixin button-add-mobile () {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s;
+  text-align: center;
+  box-shadow: 0px 14px 15px 0px rgba(0, 163, 255, 0.1);
+  @include line-height-local(44px);
+  @include tablet {
+    box-shadow: none;
+  }
+}
+
+@mixin status-pill ($color, $bg) {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 15px;
+  border-radius: 8px;
+  color: $color;
+  background-color: $bg;
+  @include tablet {
+    font-size: 12px;
+    padding: 6px 21px;
+  }
+}

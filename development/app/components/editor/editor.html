@@ -1,0 +1,29 @@
+<div class="editor-block">
+    <div class="editor-control-panel">
+        <div class="wrapper">
+            <div class="editor-heading-container">
+
+                <a ui-sref="project.all({id: vm.projectId})" class="return-link-container">
+                    <span class="icon-icon-35"></span>
+                </a>
+                <h1 class="title">[[vm.lang.get('editor_heading_title')]]</h1>
+
+
+            </div>
+            <a class="project-domain" href="[[vm.projectData.domain]]" target="_blank">[[vm.projectData.domain]]</a>
+            <ul class="editor-navigation-container">
+                <li>
+                    <a ui-sref="editor.layout" ui-sref-active="active" class="editor-navigation-item">[[vm.lang.get('editor_tab_nav_layout')]]</a>
+                </li>
+                <li>
+                    <a ui-sref="editor.images" ui-sref-active="active" class="editor-navigation-item">[[vm.lang.get('editor_tab_nav_images')]]</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="editor-tab-panel">
+        <div class="wrapper">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="change-pass-dialog-block">
+    <dialog-body open-control="vm.settings.openControl"
+                 close-dialog="vm.dialogReject()">
+        <form name="passForm"
+              class="change-pass-container"
+              novalidate>
+            <div class="dialog-title">[[vm.lang.get('account_change_pass_dialog_title')]]</div>
+            <div class="form-field-container">
+                <label>
+                    <span class="field-title">
+                        [[vm.lang.get('account_change_pass_dialog_field_current_pass')]]
+                    </span>
+                    <div class="field-input-container">
+                        <input type="password"
+                               name="currPass"
+                               ng-model="vm.passObj.currPass"
+                               required>
+                    </div>
+                </label>
+            </div>
+            <div class="form-field-container">
+                <label>
+                    <span class="field-title">
+                        [[vm.lang.get('account_change_pass_dialog_field_new_pass')]]
+                    </span>
+                    <div class="field-input-container">
+                        <input type="password"
+                               name="newPass"
+                               ng-model="vm.passObj.newPass"
+                               required>
+                    </div>
+                </label>
+            </div>
+            <div class="form-field-container">
+                <label>
+                    <span class="field-title">
+                        [[vm.lang.get('account_change_pass_dialog_field_confirm_pass')]]
+                    </span>
+                    <div class="field-input-container">
+                        <input type="password"
+                               name="confirmPass"
+                               ng-model="vm.passObj.confirmPass"
+                               required>
+                    </div>
+                </label>
+            </div>
+            <div class="button-container">
+                <input class="button-accept"
+                       type="submit"
+                       data-ng-click="vm.changePassRequest(); vm.dialogReject()"
+                       ng-value="vm.lang.get('account_change_pass_dialog_button_confirm')"
+                       ng-disabled="passForm.$invalid">
+                <div class="button-reject"
+                     data-ng-click="vm.dialogReject()">[[vm.lang.get('account_change_pass_dialog_button_reject')]]</div>
+            </div>
+        </form>
+    </dialog-body>
+</div>

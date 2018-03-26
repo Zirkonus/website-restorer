@@ -1,0 +1,380 @@
+@import "scss/_mixin";
+
+.header-block {
+  $header-height: 90px;
+  $header-height-mobile: 60px;
+  $color-active: #9966ff;
+  $color-hover: #36444d;
+  $color-text: #7793a1;
+  $user-avatar-diameter: 43px;
+  $hover-transition-time: 0.2s;
+
+  position: relative;
+  background-color: #fff;
+  height: $header-height-mobile;
+  z-index: 10;
+  @include tablet {
+    height: $header-height;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 16px;
+
+    z-index: 20;
+    box-shadow: inset 0px 6px 6px 0px rgba(152, 125, 254, 0.06);
+    @include tablet {
+      box-shadow: inset 0px 8px 8px 0px rgba(152, 125, 254, 0.1);
+    }
+  }
+
+  .wrapper {
+    @include clearfix();
+  }
+
+  .logo-container {
+    float: left;
+    height: $header-height-mobile;
+    line-height: $header-height-mobile;
+    @include tablet {
+      height: $header-height;
+      line-height: $header-height;
+    }
+    .logo {
+      display: inline-block;
+      vertical-align: middle;
+      //background-image: url('/assets/img/logo.png');
+      background-image: url('/assets/img/logo.jpg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      //width: 108px;
+      //height: 40px;
+      width: 110px;
+      height: 58px;
+      @include tablet {
+        //width: 135px;
+        //height: 50px;
+        //width: 183px;
+        //height: 88px;
+        width: 162px;
+        height: 78px;
+      }
+    }
+  }
+
+  .menu-icon-container {
+    float: right;
+    line-height: $header-height-mobile;
+    @include tablet {
+      display: none;
+    }
+    & > * {
+      z-index: 50;
+    }
+  }
+
+  .navigation-container {
+    @include clearfix();
+    //display: none;
+    position: fixed;
+    left: 100vw;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    color: $color-text;
+    z-index: 40;
+    transition: 0.4s;
+    @include tablet {
+      position: static;
+      width: auto;
+      height: auto;
+      float: right;
+      display: block;
+      line-height: $header-height;
+    }
+    &.menu-mobile-opened {
+      left: 0;
+    }
+    .nav-link {
+      position: relative;
+      display: block;
+      font-size: 14px;
+      line-height: 26px;
+      font-weight: 400;
+      //margin: 0 32px 15px 32px;
+      margin: 0 10% 15px 10%;
+      color: #6f7a87;
+      @include tablet {
+        display: inline-block;
+        text-align: center;
+        transition: color $hover-transition-time;
+        font-size: 16px;
+        height: $header-height;
+        line-height: $header-height;
+        padding: 0 5px 0 5px;
+        margin: 0 35px 0 0;
+        color: $color-text;
+      }
+      @include laptop {
+        &:hover {
+          color: $color-hover;
+        }
+      }
+      &.active {
+        color: #9966ff;
+        @include tablet {
+          font-weight: 700;
+          border-bottom: 3px solid $color-active;
+          color: $color-active;
+        }
+      }
+      &.link-pull-left {
+        @include tablet {
+          float: left;
+        }
+      }
+      & > .text {
+        margin-left: 13px;
+        vertical-align: middle;
+        @include tablet {
+          vertical-align: baseline;
+          margin-left: 0;
+        }
+      }
+      & > .icon-icon-37, & > .icon-icon-10, & > .icon-icon-03, & > .icon-icon-48 {
+        font-size: 20px;
+        vertical-align: middle;
+        @include tablet {
+          display: none;
+        }
+      }
+      &.account-link {
+        @include tablet {
+          margin: 0 10px 0 0;
+        }
+      }
+      &.logout-link {
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+    .user-avatar-container {
+      position: relative;
+      display: none;
+      z-index: 30;
+      @include tablet {
+        display: inline-block;
+        margin: 0 30px 0 0;
+      }
+
+      .dropdown-menu {
+        font-weight: 400;
+        text-align: left;
+        .dropdown-list-heading {
+          display: none;
+        }
+        .dropdown-list {
+          width: 170px;
+          top: 78px;
+          right: -6px;
+          box-shadow: 0px 11px 29px 0px rgba(142, 117, 238, 0.37);
+        }
+        .dropdown-item-text {
+          font-family: 'Montserrat', sans-serif !important;
+        }
+      }
+
+      .user-avatar {
+        position: relative;
+        display: inline-block;
+        width: $user-avatar-diameter;
+        line-height: $user-avatar-diameter;
+        border-radius: 50%;
+        color: #69d100;
+        background-color: #d7f4d6;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        .user-dropdown-icon {
+          display: inline-block;
+          @include content-position-center();
+          position: absolute;
+          bottom: 1px;
+          right: 1px;
+          width: 14px;
+          height: 14px;
+          border: 1px solid #7793a1;
+          border-radius: 50%;
+          color: #7793a1;
+          background-color: #fff;
+          .icon-icon-49 {
+            font-size: 6px;
+          }
+        }
+      }
+
+    }
+    .user-fullname-mobile-container {
+      //padding: 0 32px 25px 32px;
+      padding: 0 10% 25px 10%;
+      height: 105px;
+      background-color: #9966ff;
+      @include tablet {
+        display: none;
+      }
+      & > a {
+        position: relative;
+        display: inline-block;
+        height: 62px;
+        @include line-height-local(62px);
+        vertical-align: baseline;
+        .user-avatar {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translate(0, -50%);
+          display: inline-block;
+          width: $user-avatar-diameter;
+          line-height: $user-avatar-diameter;
+          border-radius: 50%;
+          background-color: #fff;
+          font-size: 14px;
+          font-weight: 600;
+          color: #9966ff;
+          text-align: center;
+          @include tablet {
+            color: #69d100;
+            background-color: #d7f4d6;
+          }
+        }
+        .user-account {
+          display: inline-block;
+          font-size: 16px;
+          font-weight: 600;
+          vertical-align: middle;
+          color: #fff;
+          margin: 0 20px 0 56px;
+          transition: color $hover-transition-time;
+          text-overflow: ellipsis;
+          overflow-x: hidden;
+          white-space: nowrap;
+        }
+      }
+    }
+    .user-coin-container {
+      width: 164px;
+      height: 54px;
+      line-height: 54px;
+      margin: -27px auto 40px auto;
+      background-color: #fff;
+      border-radius: 27px;
+      text-align: center;
+      color: #9966ff;
+      box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.15);
+      @include tablet {
+        width: auto;
+        display: inline-block;
+        height: $header-height;
+        line-height: $header-height;
+        vertical-align: baseline;
+        margin: 0 35px 0 0;
+        background-color: transparent;
+        border-radius: 0;
+        color: $color-text;
+        box-shadow: none;
+      }
+      .coins {
+        display: inline-block;
+        font-size: 20px;
+        vertical-align: middle;
+        margin-right: 1px;
+        @include tablet {
+          font-size: 18px;
+        }
+      }
+      .icon-icon-22 {
+        font-size: 22px;
+        vertical-align: middle;
+        @include tablet {
+          font-size: 24px;
+        }
+      }
+    }
+    .notification {
+      position: relative;
+      display: block;
+      line-height: 26px;
+      font-size: 23px;
+      vertical-align: middle;
+      color: #6f7a87;
+      //margin: 0 32px 15px 32px;
+      margin: 0 10% 15px 10%;
+      @include tablet {
+        height: $header-height;
+        line-height: $header-height;
+        display: inline-block;
+        color: $color-text;
+        margin: 0;
+      }
+      .icon-icon-01 {
+        position: relative;
+        font-size: 19px;
+        vertical-align: middle;
+        @include tablet {
+          font-size: 23px;
+          vertical-align: baseline;
+        }
+      }
+      &.active {
+        .icon-icon-01 {
+          &::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #ff0245;
+            @include tablet {
+              top: 0;
+              right: 0;
+              width: 10px;
+              height: 10px;
+            }
+          }
+        }
+      }
+      & > .text {
+        font-size: 14px;
+        vertical-align: middle;
+        margin-left: 13px;
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+
+    //Menu reduce content vertical offset for < 320 height
+    @media (max-height: #{320px}) {
+      margin-top: 0;
+      .user-link-container {
+        height: 95px;
+      }
+      .user-coin-container {
+        margin-bottom: 30px;
+      }
+    }
+
+  }
+
+}

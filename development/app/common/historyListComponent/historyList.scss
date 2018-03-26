@@ -1,0 +1,124 @@
+@import "scss/_mixin";
+
+.history-list-block {
+
+  .col-icon {
+    float: left;
+    width: 15%;
+    @include tablet {
+      width: 90px;
+    }
+    @include laptop {
+      width: 120px;
+      //width: 10.25%;
+    }
+  }
+  .col-message {
+    float: right;
+    width: 85%;
+    @include tablet {
+      width: calc(100% - 270px);
+      float: left;
+    }
+    @include laptop {
+      width: calc(100% - 330px);
+      //width: 71.79%;
+    }
+  }
+  .col-date {
+    float: right;
+    width: 85%;
+    @include tablet {
+      width: 180px;
+      float: left;
+    }
+    @include laptop {
+      width: 210px;
+      //width: 17.94%;
+    }
+  }
+  .history-list-heading {
+    @include clearfix();
+    display: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #6f7a87;
+    padding: 7px 0;
+    @include tablet {
+      display: block;
+    }
+  }
+  .history-list-body {
+    //box-shadow: 0px 14px 50px 0px rgba(152, 125, 254, 0.14);
+  }
+  .history-list-item {
+    transition: $hover-transition-time;
+    @include fade-ng-if();
+    @include clearfix();
+    background-color: #fff;
+    box-shadow: 0 14px 50px 0 rgba(152, 125, 254, 0.14);
+    margin-bottom: 4px;
+    .col-icon {
+      text-align: center;
+      @include line-height-local(42px);
+      @include tablet {
+        @include line-height-local(60px);
+      }
+    }
+    .col-message {
+      font-size: 14px;
+      line-height: 1.3;
+      color: #36444d;
+      padding: 12px 10px 7px 0;
+      @include tablet {
+        line-height: $line-height-normal;
+        font-size: 16px;
+        padding: 20px 30px 20px 0;
+      }
+      @include laptop {
+        padding: 20px 40px 20px 0;
+      }
+    }
+    .col-date {
+      font-size: 10px;
+      color: #90a4ae;
+      padding-bottom: 12px;
+      //@include line-height-local(30px);
+      @include tablet {
+        color: #6f7a87;
+        font-size: 14px;
+        padding-bottom: 0;
+        @include line-height-local(60px);
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .history-more-container {
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+    @include tablet {
+      margin-top: 50px;
+      margin-bottom: 130px;
+    }
+    .button-more {
+      @include button-container();
+      background-color: #fff;
+      color: #0099ff;
+      box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.1);
+      cursor: pointer;
+      @include laptop {
+        &:hover {
+          background-color: #00a3ff;
+          box-shadow: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

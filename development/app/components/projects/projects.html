@@ -1,0 +1,11 @@
+<div class="dashboard-block">
+    <div class="wrapper">
+        <projects-list projects-list-data="vm.projectsListData"></projects-list>
+        <div ng-if="vm.historyListData.history.length">
+            <div id="history" class="history-heading-container">
+                <h1>[[vm.lang.get('dashboard_history_heading')]]</h1>
+            </div>
+            <history-list list-data="vm.historyListData"></history-list>
+        </div>
+    </div>
+</div>

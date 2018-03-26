@@ -1,0 +1,16 @@
+@import "scss/_mixin";
+
+.dashboard-block {
+
+
+  .history-heading-container {
+    h1 {
+      margin: 10px 0 25px 0;
+      @include tablet {
+        margin: 15px 0 25px 0;
+      }
+    }
+  }
+
+
+}

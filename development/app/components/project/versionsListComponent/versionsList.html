@@ -1,0 +1,51 @@
+<div class="project-versions-list"
+     click-outside-closest="vm.dropdownMenuOpenIndex = null"
+     closest-selector=".project-version-item">
+    <div infinite-scroll="vm.listLoadMore()"
+         infinite-scroll-distance="1"
+         infinite-scroll-disabled="!vm.versionsData.is_more">
+        <div data-ng-repeat="version in vm.versionsData.versions">
+            <div class="project-version-item"
+                 ng-class="{'type-restored': version.status === 'restored',
+                        'type-loading': version.status === 'in_progress',
+                        'type-error': version.status === 'error',
+                        'type-canceling': version.status === 'cancel'}"
+                 data-ng-click="vm.dropdownOpen($index)">
+                <div class="col-date">
+                    <span>[[version.date_archive]]</span>
+                </div>
+                <div class="col-content">
+                    <div class="preview-container"
+                         preview-image-src="[['/versions/preview?id=' + version.id]]"
+                         data-ng-click="$event.stopPropagation(); vm.openPreviewImagePopup('/versions/preview?id=' + version.id)"> <!--vm.openPreview(true, '/versions/preview?id=' + version.id)-->
+                        <img ng-src="[['/versions/preview?id=' + version.id]]"/>
+                    </div>
+                    <ul ng-if="version.status === 'restored'">
+                        <li>Files: <b>[[version.files_total]]</b></li>
+                        <li>Images: <b>[[version.images_total]]</b> (<span>[[version.images_size]] Mb</span>)</li>
+                        <li>Size: <b>[[version.files_size]] Mb</b></li>
+                    </ul>
+                    <div class="status-container" ng-if="version.status !== 'basic'">
+                        <div class="status-pill">[[vm.statusPill[version.status];]]</div>
+                        <div class="status-time">
+                            <span>[[vm.statusTimeType[version.status];]]</span>
+                            <span class="time">[[version.updated_at]]</span>
+                        </div>
+                    </div>
+                </div>
+                <dropdown-menu class="dropdown-menu"
+                               ng-if="version.status !== 'cancel'"
+                               data-ng-class="{'opened': vm.dropdownMenuOpenIndex === $index}"
+                               config-list="vm.dropdownConfig[version.status]"
+                               cb-param="{dataObj: version, index: $index}"
+                               dropdown-open="vm.dropdownMenuOpenIndex === $index">
+                    <span class="icon-icon-14"></span>
+                </dropdown-menu>
+            </div>
+        </div>
+        <preview-image></preview-image>
+    </div>
+    <div class="empty-list-message"
+         data-ng-if="vm.isEmptyList()">[[vm.emptyListMessage]]</div>
+
+</div>

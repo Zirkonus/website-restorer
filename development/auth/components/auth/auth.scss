@@ -1,0 +1,200 @@
+@import "scss/_mixin";
+
+body.auth {
+  background: linear-gradient(to right,#9e89f2, #c2a7f2);
+}
+.auth-block {
+  position: relative;
+
+  .auth-text {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    .auth-link {
+      font-size: 12px;
+    }
+    @include tablet {
+      display: none;
+    }
+  }
+}
+.auth-from {
+  position: relative;
+  max-width: 650px;
+  margin: 46px auto;
+  background: #fff;
+  //box-shadow: 0 0 25px #777;
+  box-shadow: 0px 20px 30px 0px rgba(54, 68, 77, 0.15);
+  padding: 32px 30px 40px;
+
+  @include tablet {
+    margin: 120px auto;
+    padding: 90px 75px 105px;
+  }
+  .form-title {
+    position: relative;
+    font-size: 20px;
+    line-height: 20px;
+    font-family: "Montserrat Light", sans-serif;
+    color: #36444d;
+    text-align: center;
+    margin: 0;
+    padding: 0 0 20px;
+
+    @include tablet {
+      font-size: 30px;
+      line-height: 30px;
+      padding: 0 0 60px;
+    }
+  }
+  form {
+    position: relative;
+
+    .input-wrapper {
+      position: relative;
+      .auth-placeholder {
+        position: absolute;
+        top: 10px;
+        color: #6f7a87;
+        font-size: 14px;
+        font-family: "Open Sans", sans-serif;
+        z-index: 10;
+
+        cursor: text;
+        
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+        @include tablet {
+          top: 18px;
+          font-size: 18px;
+        }
+      }
+      .auth-placeholder.focus {
+        font-size: 9px;
+        z-index: 10;
+        top: -12px;
+        @include tablet {
+          font-size: 13px;
+          top: -18px;
+        }
+      }
+
+      .form-icons {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        font-size: 18px;
+        line-height: 38px;
+        @include tablet {
+          font-size: 30px;
+          line-height: 58px;
+        }
+      }
+    }
+
+    .input-wrapper.error input {
+      color: #ff0245;
+      border-bottom: 1px solid #ff0245;
+    }
+    .input-wrapper.error .danger {
+      display: block;
+      color: #ff0245;
+    }
+    .input-wrapper.error .success {
+      display: none;
+    }
+    .input-wrapper.success .danger {
+      display: none;
+    }
+    .input-wrapper.success .success {
+      display: block;
+      color: #543aed;
+    }
+
+    .input-wrapper .pass {
+      display: block;
+      color: #842ff7 !important;
+      cursor: pointer;
+    }
+    .icon-icon-38 {
+      opacity: 0.5;
+    }
+
+    input {
+      position: relative;
+      display: block;
+      width: 100%;
+      font-size: 14px;
+      font-family: "Open Sans", sans-serif;
+      line-height: 38px;
+      color: #6f7a87;
+      border: none;
+      border-bottom: 1px solid #a2b6bf;
+      margin-bottom: 10px;
+      @include tablet {
+        font-size: 18px;
+        line-height: 58px;
+        margin-bottom: 30px;
+      }
+      &:last-of-type {
+        margin-bottom: 32px;
+        @include tablet {
+          margin-bottom: 54px;
+        }
+      }
+      &.showed {
+        border-bottom: 1px solid #543aed;
+      }
+    }
+
+    button {
+      position: relative;
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 41px;
+      font-size: 14px;
+      font-family: "Open Sans", sans-serif;
+      color: #fff;
+      text-transform: capitalize;
+      background: #842ff7;
+      border-radius: 24px;
+      border: none;
+      margin: 0 auto 16px;
+      cursor: pointer;
+
+      @include tablet {
+        height: 48px;
+        line-height: 48px;
+        font-size: 18px;
+      }
+
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+
+      &:hover {
+        background: #8870e4;
+      }
+    }
+  }
+
+
+  .login-error {
+    position: absolute;
+    color: #ff1351;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    left: 0;
+    bottom: -16px;
+  }
+
+}

@@ -1,0 +1,224 @@
+@import "scss/_mixin";
+
+.menu-expander-block {
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
+
+  &.root-item {
+    .menu-expander-container {
+      .menu-container {
+        & > span:first-child {
+          margin-left: 58px;
+        }
+      }
+      .title-container {
+        font-weight: 600;
+        background-color: #afc4e3;
+        span {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .menu-expander-container {
+    white-space: nowrap;
+    @include clearfix();
+    display: inline-block;
+    line-height: 76px;
+    height: 76px;
+    max-width: 100%;
+    @include tablet {
+      line-height: 80px;
+      height: 80px;
+    }
+
+    .menu-overflow-container {
+      display: none;
+      float: left;
+      overflow-x: hidden;
+      height: 80px;
+      line-height: 80px;
+      max-width: 100%;
+      vertical-align: bottom;
+      transition: 0.8s;
+      @include tablet {
+        display: inline-block;
+        max-width: 0;
+      }
+    }
+
+    .menu-container {
+      display: inline-block;
+      white-space: nowrap;
+      height: 60px;
+      line-height: 60px;
+      vertical-align: bottom;
+      .circle-icon {
+        position: relative;
+        cursor: pointer;
+        transition: $hover-transition-time;
+        vertical-align: middle;
+        display: inline-block;
+        &:last-child {
+          margin-right: 20px;
+        }
+        &.icon-icon-31 {
+          color: #9966ff;
+          @include laptop {
+            &:hover {
+              color: #987dfe;
+            }
+          }
+        }
+        &.icon-icon-28 {
+          color: #f4d01a;
+          @include laptop {
+            &:hover {
+              color: #fbe04b;
+            }
+          }
+        }
+        &.icon-icon-30 {
+          color: #7bcb29;
+          @include laptop {
+            &:hover {
+              color: #92dd4a;
+            }
+          }
+        }
+        &.icon-icon-26 {
+          color: #ff0245;
+          @include laptop {
+            &:hover {
+              color: #fc5253;
+            }
+          }
+        }
+
+        & > span {
+          font-size: 14px;
+          color: #a2b6bf;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, 0);
+          opacity: 0;
+          transition: 0.2s;
+          font-family: 'Montserrat', sans-serif;
+        }
+
+        @include tablet {
+          margin: 0 10px;
+          font-size: 40px;
+        }
+
+        @include laptop {
+          //margin: 0 14px;
+          //font-size: 50px;
+
+          &:hover {
+            & > span {
+              top: -20px;
+              opacity: 1;
+            }
+          }
+        }
+
+      }
+      .text-icon {
+        display: inline-block;
+        color: #fff;
+        background-color: #00a3ff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: $hover-transition-time;
+        vertical-align: middle;
+        @include tablet {
+          height: 42px;
+          line-height: 42px;
+          padding: 0 22px;
+          margin: 0 10px;
+          border-radius: 21px;
+        }
+        @include laptop {
+          //height: 54px;
+          //line-height: 54px;
+          //padding: 0 32px;
+          //margin: 0 14px;
+          //border-radius: 27px;
+          &:hover {
+            background-color: #64c0f8;
+          }
+        }
+      }
+
+    }
+
+    .title-container {
+      display: inline-block;
+      min-width: 150px;
+      max-width: 100%;
+      text-align: center;
+      height: 48px;
+      line-height: 48px;
+      padding: 0 20px;
+      background-color: #fff;
+      cursor: pointer;
+      vertical-align: bottom;
+      box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.1);
+      transition: 0.6s;
+      @include tablet {
+        min-width: 180px;
+        //max-width: 700px;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 25px;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 16px;
+        color: #36444d;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        transition: 0.6s;
+      }
+    }
+
+    @include tablet {
+      &.opened {
+        .menu-overflow-container {
+          max-width: 100%;
+          @include laptop {
+            max-width: 0;
+          }
+        }
+        .title-container {
+          max-width: calc(100% - 358px);
+          @include laptop {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+
+    @include laptop {
+      &:hover {
+        .menu-overflow-container {
+          max-width: 100%;
+        }
+        .title-container {
+          //max-width: calc(100% - 464px);
+          max-width: calc(100% - 358px);
+        }
+      }
+    }
+
+  }
+
+}
+

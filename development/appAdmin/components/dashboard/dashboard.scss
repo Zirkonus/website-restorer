@@ -1,0 +1,42 @@
+@import "scss/_mixin";
+
+.general-info {
+  position: relative;
+  text-align: center;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  margin-bottom: 25px;
+  @include laptop {
+    text-align: justify;
+    margin-bottom: 78px;
+  }
+  &:before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0;
+  }
+  &:after {
+    width: 100%;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    content: '';
+    display: inline-block;
+  }
+}
+.btns-block {
+  text-align: center;
+}
+.view-all-users {
+  @include button-container();
+  border: none;
+  background: #fff;
+  color: #00a3ff;
+  cursor: pointer;
+  &:hover {
+    background: #00a3ff;
+    color: #fff;
+  }
+}

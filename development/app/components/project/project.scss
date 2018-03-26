@@ -1,0 +1,244 @@
+@import "scss/_mixin";
+.project-block {
+    .project-control-panel {
+        background-color: #fff;
+        z-index: -10;
+        .project-info-container {
+            .project-domain {
+                color: #00a3ff;
+                text-decoration: none;
+                display: block;
+                margin-bottom: 5px;
+            }
+            .project-heading-container {
+                position: relative;
+                padding: 20px 0 0 0;
+                line-height: 40px;
+                @include tablet {
+                    padding: 60px 0 0 0;
+                }
+                .return-link-container {
+                    .icon-icon-35 {
+                        display: none;
+                        vertical-align: middle;
+                        font-size: 33px;
+                        color: #90a4ae;
+                        margin: -2px 10px 0 1px;
+                        &::before {
+                            display: inline-block;
+                            transform: rotate(-90deg);
+                        }
+                        @include tablet {
+                            display: inline-block;
+                        }
+                        @include laptop {
+                            transition: $hover-transition-time;
+                        }
+                    }
+                    @include laptop {
+                        cursor: pointer;
+                        &:hover {
+                            h1 {
+                                color: #02a2ff;
+                            }
+                            .icon-icon-35 {
+                                color: #02a2ff;
+                            }
+                        }
+                    }
+                }
+                h1 {
+                    font-size: 18px;
+                    margin: 0 0 0 0;
+                    vertical-align: middle;
+                    padding: 0 100px 0 0;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    @include tablet {
+                        margin: 0 15px 0 0;
+                        padding: 0 25px 0 0;
+                        display: inline-block;
+                        font-size: 28px;
+                    }
+                    @include tablet {
+                        transition: $hover-transition-time;
+                    }
+                }
+                .project-control-container {
+                    display: inline-block;
+                    position: absolute;
+                    top: 17px;
+                    right: 0;
+                    @include tablet {
+                        position: static;
+                    }
+                }
+                .icon-edit-container {
+                    @include content-position-center();
+                    display: inline-block;
+                    width: 33px;
+                    height: 33px;
+                    margin-top: 4px;
+                    border-radius: 50%;
+                    background-color: #ddf0fd;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    transition: $hover-transition-time;
+                    @include laptop {
+                        opacity: 0;
+                        &:hover {
+                            background-color: #a4d5f7;
+                            .icon-icon-09 {
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                    .icon-icon-09 {
+                        font-size: 16px;
+                        color: #02a2ff;
+                        @include tablet {
+                            font-size: 18px;
+                        }
+                    }
+                }
+                .icon-icon-26 {
+                    position: relative;
+                    display: inline-block;
+                    font-size: 32px;
+                    color: #ffccd6;
+                    vertical-align: middle;
+                    margin: 4px 0 0 10px;
+                    cursor: pointer;
+                    transition: $hover-transition-time;
+                    z-index: 5;
+                    .back-layer {
+                        display: inline-block;
+                        position: absolute;
+                        top: 1px;
+                        right: 1px;
+                        bottom: 1px;
+                        left: 1px;
+                        border-radius: 50%;
+                        background-color: #ff0245;
+                        z-index: -1;
+                        transition: $hover-transition-time;
+                    }
+                    @include laptop() {
+                        opacity: 0;
+                        &:hover {
+                            color: #ff7298;
+                            .back-layer {
+                                background-color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            .project-title {
+                font-size: 14px;
+                color: #6f7a87;
+                @include tablet {
+                    font-size: 18px;
+                }
+            }
+            .project-info-container {
+                padding: 5px 0 20px 0;
+                @include tablet {
+                    padding: 5px 0 25px 0;
+                }
+                .project-info-title {
+                    display: inline-block;
+                    font-size: 12px;
+                    color: #36444d;
+                    cursor: pointer;
+                    @include tablet {
+                        font-size: 14px;
+                    }
+                    .icon-icon-16 {
+                        display: inline-block;
+                        margin: -1px 0 0 8px;
+                        font-size: 9px;
+                        @include tablet {
+                            font-size: 11px;
+                        }
+                    }
+                }
+                .project-info-content {
+                    padding: 8px 0 0 0;
+                    font-size: 14px;
+                    line-height: 26px;
+                    color: #6f7a87;
+                    transition: $hover-transition-time;
+                    height: 162px;
+                    &.ng-hide {
+                        height: 0;
+                        overflow: hidden;
+                        opacity: 0;
+                    }
+                    @include tablet {
+                        padding: 6px 0 0 0;
+                        font-size: 16px;
+                    }
+                }
+                &.open {
+                    .project-info-title {
+                        .icon-icon-16 {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+            @include laptop {
+                &:hover {
+                    .project-heading-container {
+                        .icon-edit-container {
+                            opacity: 1;
+                        }
+                        .icon-icon-26 {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        .project-navigation-container {
+            white-space: nowrap;
+            &>li {
+                display: inline-block;
+                &:last-child {
+                    .project-navigation-item {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .project-navigation-item {
+                display: inline-block;
+                padding: 9px 16px;
+                font-size: 14px;
+                margin-right: 13px;
+                color: #36444d;
+                cursor: pointer;
+                @include tablet {
+                    padding: 9px 39px;
+                    font-size: 16px;
+                }
+                @include laptop {
+                    &:hover {
+                        color: #90a4ae;
+                    }
+                }
+                &.active {
+                    border-bottom: 2px solid #36444d;
+                    font-weight: 700;
+                    @include laptop {
+                        border-bottom: 3px solid #36444d;
+                        &:hover {
+                            color: #36444d;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

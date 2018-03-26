@@ -1,0 +1,22 @@
+<div class="history-list-block">
+    <div class="history-list-heading">
+        <div class="col-icon">&nbsp;</div>
+        <div class="col-message">[[vm.lang.get('history_list_message_title')]]</div>
+        <div class="col-date">[[vm.lang.get('history_list_date_title')]]</div>
+    </div>
+    <div class="history-list-body">
+        <div class="history-list-item" data-ng-repeat="histItem in vm.listData.history">
+            <div class="col-icon">
+                <history-icon type="histItem.type"></history-icon>
+            </div>
+            <div class="col-message" ng-bind-html="vm.sce.trustAsHtml(histItem.message)">
+            </div>
+            <div class="col-date">[[histItem.created_at]]</div>
+        </div>
+    </div>
+    <div class="history-more-container">
+        <div class="button-more"
+             data-ng-if="vm.listData.is_more"
+             data-ng-click="vm.listLoadMore()">[[vm.lang.get('button_more')]]</div>
+    </div>
+</div>

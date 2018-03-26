@@ -1,0 +1,53 @@
+<div class="header-block">
+    <div class="wrapper">
+        <div class="logo-container">
+            <a ui-sref="start" class="logo"></a>
+        </div>
+        <div class="menu-icon-container">
+            <menu-switcher menu-state="vm.menu"></menu-switcher>
+        </div>
+        <div class="navigation-container" data-ng-class="{'menu-mobile-opened': vm.menu.opened}">
+            <div class="user-link-container">
+                <a href="" class="user-link"
+                   data-ng-click="vm.menu.opened = false; vm.clickLogout()">
+                    <span class="user-avatar">
+                        <span class="icon-icon-33">
+                        </span>
+                        <span class="logout-icon">
+                            <span class="icon-icon-18"></span>
+                            <span class="icon-icon-49"></span>
+                        </span>
+                    </span>
+                    <span class="user-name">Admin</span>
+                </a>
+                <div class="logout-item"
+                     data-ng-show="vm.openLogout"
+                     click-outside-closest="vm.openLogout = false"
+                     closest-selector=".user-link">
+                    <a href="/logout">
+                        <span class="icon-icon-48"></span> Log Out
+                    </a>
+                </div>
+            </div>
+            <!--<a href="#" class="notification active"-->
+               <!--data-ng-click="vm.menu.opened = false">-->
+                <!--<span class="icon-icon-01"></span>-->
+                <!--<span class="text">[[vm.lang.get('header_link_notification')]]</span>-->
+            <!--</a>-->
+            <a ui-sref="dashboard"
+               ui-sref-active="active"
+               class="nav-link"
+               data-ng-click="vm.menu.opened = false">
+                <span class="icon-icon-37"></span>
+                <span class="text">[[vm.lang.get('header_link_dashboard')]]</span>
+            </a>
+            <a class="nav-link"
+               ui-sref="userList"
+               ui-sref-active="active"
+               data-ng-click="vm.menu.opened = false">
+                <span class="icon-icon-12"></span>
+                <span class="text">[[vm.lang.get('header_link_user_list')]]</span>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="user-dialog-wrapper">
+	<h3 class="dialog-header">Edit</h3>
+	<form class="dialog-form"
+	      data-ng-submit="vm.updateUser()">
+
+		<label for="name">Name</label>
+		<input type="text" id="name"
+		       data-ng-model="vm.userInfo.username" required>
+
+		<label for="email">Email</label>
+		<input type="text" id="email"
+		       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+		       data-ng-model="vm.userInfo.email"  required>
+
+		<div class="local-wrapper">
+
+			<div class="left">
+				<label for="credits">Credits Available</label>
+				<input type="number" id="credits"
+				       data-ng-model="vm.userInfo.credits"  required>
+			</div>
+
+			<div class="left">
+				<label for="active">Is Active</label>
+				<select id="active"
+				        data-ng-model="vm.defOption"
+				        data-ng-options="option.name for option in vm.userOption"></select>
+			</div>
+
+		</div>
+
+
+
+		<div class="button-wrapper">
+			<button type="submit" class="save-btn">Save</button>
+			<button type="button" class="cancel-btn"
+			        data-ng-click="vm.cancel()">Cancel</button>
+		</div>
+	</form>
+</div>

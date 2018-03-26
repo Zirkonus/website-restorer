@@ -1,0 +1,18 @@
+<div class="copy-link-gallery-dialog-block">
+    <dialog-body open-control="vm.settings.openControl"
+                 close-dialog="vm.confirmReject()">
+        <div class="copy-link-dialog-container">
+            <div class="dialog-title">[[vm.lang.get('editor_gallery_copy_link_dialog_title')]]</div>
+            <div class="link-container">
+                <span class="link-description">[[vm.lang.get('editor_gallery_copy_link_dialog_description')]]</span>
+                <input ng-model="vm.settings.link" ng-readonly="true">
+                <div class="button-copy"
+                     clipboard
+                     text="vm.settings.link"
+                     data-ng-click="vm.confirmReject()">[[vm.lang.get('editor_gallery_copy_link_dialog_button_copy')]]</div>
+
+            </div>
+            <a data-ng-href="[[vm.settings.link]]" target="_blank">[[vm.lang.get('editor_gallery_copy_link_dialog_open_link')]]</a>
+        </div>
+    </dialog-body>
+</div>

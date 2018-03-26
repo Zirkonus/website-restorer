@@ -1,0 +1,133 @@
+@import "scss/_mixin";
+.visual-editor-block {
+    .editor-control-panel {
+        background-color: #fff;
+        //z-index: -10;
+        .wrapper {
+            position: relative;
+        }
+        .editor-heading-container {
+            display: inline-block;
+            padding: 20px 0 27px 0;
+            @include tablet {
+                padding: 63px 0 33px 0;
+            }
+            .return-link-container-div {
+                .title.show-tablet {
+                    display: none;
+                    @include tablet {
+                        display: inline-block;
+                    }
+                    h1 {
+                        display: inline-block;
+                        margin: 0;
+                        line-height: 36px;
+                        font-size: 28px;
+                        vertical-align: middle;
+                        @include tablet {}
+                        @include laptop {
+                            transition: $hover-transition-time;
+                            font-size: 28px;
+                        }
+                    }
+                }
+                .return-link-container {
+                    display: inline-block;
+                    @include tablet {
+                        margin: 0px 6px 0 1px;
+                    }
+                    &.hide-tablet {
+                        cursor: pointer;
+                        &:hover {
+                            color: #02a2ff;
+                        }
+                        @include tablet {
+                            display: none;
+                        }
+                    }
+                    .icon-icon-35 {
+                        vertical-align: middle;
+                        display: none;
+                        font-size: 33px;
+                        color: #90a4ae;
+                        line-height: 36px;
+                        &::before {
+                            display: inline-block;
+                            transform: rotate(-90deg);
+                        }
+                        @include tablet {
+                            display: inline-block;
+                        }
+                        @include laptop {
+                            transition: $hover-transition-time;
+                        }
+                    }
+                    @include laptop {
+                        cursor: pointer;
+                        &:hover {
+                            h1 {
+                                color: #02a2ff;
+                            }
+                            .icon-icon-35 {
+                                color: #02a2ff;
+                            }
+                        }
+                    }
+                }
+            }
+            .project-domain {
+                color: #00a3ff;
+                text-decoration: none;
+                display: block;
+                margin-top: 8px;
+                margin-bottom: 6px;
+                font-size: 14px;
+                @include tablet {
+                    font-size: 14px;
+                }
+            }
+        }
+        .control-buttons-container {
+            margin-top: 30px;
+            //float: right;
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            .button-accept {
+                @include button-container(100px, 48px);
+                font-size: 14px;
+                color: #fff;
+                background-color: #00a3ff;
+                cursor: pointer;
+                @include tablet {
+                    @include button-container(164px, 54px);
+                }
+                @include laptop {
+                    &:hover {
+                        background-color: #0092e5;
+                    }
+                }
+            }
+            .button-reject {
+                @include button-container(100px, 48px);
+                margin-left: 20px;
+                font-size: 14px;
+                color: #27a8f8;
+                cursor: pointer;
+                @include tablet {
+                    @include button-container(164px, 54px);
+                    margin-left: 30px;
+                }
+                @include laptop {
+                    &:hover {
+                        color: #0092e5;
+                    }
+                }
+            }
+        }
+    }
+    .editor-container {
+        height: calc(100vh - 205px);
+    }
+}

@@ -1,0 +1,20 @@
+
+<div class="pagination-wrapper">
+	<ul class="pagination">
+		<li class="item active left"
+		    data-ng-click="vm.clickArrow(-1)">
+			<span class="icon-icon-16"></span>
+		</li>
+		<li class="item"
+		    data-ng-class="item === vm.pageNum ? 'active' : ''"
+		    data-ng-click="vm.pageNum = item"
+		    data-ng-repeat="item in vm.paginationModel
+		        | paginationFilter : vm.pageNum track by $index">
+			[[item]]
+		</li>
+		<li class="item active right"
+		    data-ng-click="vm.clickArrow(1)">
+			<span class="icon-icon-16"></span>
+		</li>
+	</ul>
+</div>

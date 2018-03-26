@@ -1,0 +1,61 @@
+@import "scss/_mixin";
+
+.confirm-dialog-block {
+
+  .confirm-dialog-container {
+    width: calc(100vw - 40px);
+    max-width: 500px;
+    padding: 55px 20px 50px 20px;
+    text-align: center;
+    line-height: $line-height-normal;
+    @include tablet {
+      width: 700px;
+      max-width: 700px;
+      padding: 105px 95px 115px 95px;
+    }
+
+    .confirm-message {
+      font-size: 16px;
+      color: #36444d;
+      margin: 0 0 40px 0;
+      @include tablet {
+        margin: 0 0 60px 0;
+        font-size: 18px;
+      }
+    }
+
+    .button-accept {
+      @include button-container(100px, 48px);
+      font-size: 14px;
+      color: #fff;
+      background-color: #00a3ff;
+      cursor: pointer;
+      @include tablet {
+        @include button-container(110px, 54px);
+      }
+      @include laptop {
+        &:hover {
+          background-color: #0092e5;
+        }
+      }
+    }
+
+    .button-reject {
+      @include button-container(100px, 48px);
+      margin-left: 20px;
+      font-size: 14px;
+      color: #27a8f8;
+      cursor: pointer;
+      @include tablet {
+        @include button-container(110px, 54px);
+        margin-left: 30px;
+      }
+      @include laptop {
+        &:hover {
+          color: #0092e5;
+        }
+      }
+    }
+
+  }
+}

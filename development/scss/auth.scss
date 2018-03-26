@@ -1,0 +1,160 @@
+//@import "/node_modules/normalize.css/normalize.css";
+@import "_mixin";
+//@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    src: url('/assets/fonts/opensans/OpenSans-Regular.ttf') format('truetype');
+    //src: url("/assets/fonts/opensans/OpenSans-Regular.eot");
+    //src: url("/assets/fonts/opensans/OpenSans-Regular.eot?#iefix")format("embedded-opentype"),
+    //    url("/assets/fonts/opensans/OpenSans-Regular.woff") format("woff"),
+    //    url("/assets/fonts/opensans/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    src: url('/assets/fonts/opensans/OpenSans-Semibold.ttf') format('truetype');
+    //src: url("/assets/fonts/opensans/OpenSans-Semibold.eot");
+    //src: url("/assets/fonts/opensans/OpenSans-Semibold.eot?#iefix")format("embedded-opentype"),
+    //url("/assets/fonts/opensans/OpenSans-Semibold.woff") format("woff"),
+    //url("/assets/fonts/opensans/OpenSans-Semibold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    src: url('/assets/fonts/opensans/OpenSans-Bold.ttf') format('truetype');
+    //src: url("/assets/fonts/opensans/OpenSans-Bold.eot");
+    //src: url("/assets/fonts/opensans/OpenSans-Bold.eot?#iefix")format("embedded-opentype"),
+    //url("/assets/fonts/opensans/OpenSans-Bold.woff") format("woff"),
+    //url("/assets/fonts/opensans/OpenSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    src: url('/assets/fonts/montserrat/Montserrat-Medium.ttf') format('truetype');
+    //src: url("/assets/fonts/opensans/OpenSans-Bold.eot");
+    //src: url("/assets/fonts/opensans/OpenSans-Bold.eot?#iefix")format("embedded-opentype"),
+    //url("/assets/fonts/opensans/OpenSans-Bold.woff") format("woff"),
+    //url("/assets/fonts/opensans/OpenSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    src: url('/assets/fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
+    //src: url("/assets/fonts/opensans/OpenSans-Bold.eot");
+    //src: url("/assets/fonts/opensans/OpenSans-Bold.eot?#iefix")format("embedded-opentype"),
+    //url("/assets/fonts/opensans/OpenSans-Bold.woff") format("woff"),
+    //url("/assets/fonts/opensans/OpenSans-Bold.ttf") format("truetype");
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    min-width: 320px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: #ebeff3;
+    margin-bottom: 260px;
+    &.scroll-freeze {
+        overflow-y: hidden;
+    }
+}
+
+a,
+a:hover,
+a:visited,
+a:link,
+a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    @include tablet {
+        padding: 0 15px;
+    }
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #90a4ae;
+    @include tablet {
+        font-size: 36px;
+    }
+}
+
+//
+// Clearfix class
+//
+.clearfix:before,
+.clearfix:after {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.admin-title {
+    position: relative;
+    font-size: 36px;
+    line-height: 36px;
+    color: #90a4ae;
+    font-family: "Montserrat Medium", sans-serif;
+    padding-top: 57px;
+    padding-bottom: 49px;
+    margin: 0;
+}
+
+.p-l {
+    float: left;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.auth-link {
+    font-size: 24px;
+    line-height: 24px;
+    font-family: "Open Sans", sans-serif;
+    color: #543aed !important;
+}
+
+input:focus {
+    outline-style: none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #6f7a87;
+}

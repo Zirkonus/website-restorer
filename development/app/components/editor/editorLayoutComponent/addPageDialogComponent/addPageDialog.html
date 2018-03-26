@@ -1,0 +1,61 @@
+<div class="add-page-dialog-block">
+    <dialog-body open-control="vm.settings.openControl"
+                 close-dialog="vm.dialogReject()">
+        <div class="add-page-dialog-container">
+            <div class="dialog-title">[[vm.lang.get('editor_layout_add_page_dialog_title')]]</div>
+            <div class="form-field-container">
+                <label>
+                    <span class="field-title">
+                        [[vm.lang.get('editor_layout_add_page_dialog_field_name')]]
+                    </span>
+                    <div class="field-input-container">
+                        <input type="text"
+                               name="title"
+                               ng-model="vm.newPage.title"
+                               required>
+                    </div>
+                </label>
+            </div>
+            <div class="form-field-container">
+                <label>
+                    <span class="field-title">
+                        [[vm.lang.get('editor_layout_add_page_dialog_field_source')]]
+                    </span>
+                    <div class="field-input-container">
+                        <select name="source" size="1"
+                                ng-model="vm.newPage.source"
+                                required>
+                            <option class="test" ng-repeat="option in vm.layoutListReduced" value="[[option.id]]">[[option.title]]</option>
+                        </select>
+                    </div>
+                </label>
+            </div>
+            <div class="check-base-container">
+                <div class="check-base-item">
+                    <span class="check-group" ng-click="vm.typeChild = false;">
+                        <span ng-class="{'icon-icon-17': !vm.typeChild, 'icon-icon-18': vm.typeChild,}"></span>
+                        <span class="check-title">[[vm.lang.get('editor_layout_add_page_dialog_field_parent')]]</span>
+                    </span>
+                </div>
+                <div class="check-base-item">
+                    <span class="check-group" ng-click="vm.typeChild = true;">
+                        <span ng-class="{'icon-icon-17': vm.typeChild, 'icon-icon-18': !vm.typeChild,}"></span>
+                        <span class="check-title">[[vm.lang.get('editor_layout_add_page_dialog_field_child')]]</span>
+                    </span>
+                    <div class="form-field-container">
+                        <div class="field-input-container">
+                            <select ng-model="vm.newPage.parent"
+                                    ng-disabled="!vm.typeChild">
+                                <option ng-repeat="option in vm.layoutListReduced" value="[[option.id]]">[[option.title]]</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <div class="button-accept" ng-class="{'disabled': !vm.validDataCheck()}"
+                     data-ng-click="vm.addPageAccept()">[[vm.lang.get('editor_layout_add_page_dialog_button_save')]]</div>
+            </div>
+        </div>
+    </dialog-body>
+</div>

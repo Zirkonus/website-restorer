@@ -1,0 +1,11 @@
+@import "scss/_mixin";
+
+.history-icon-block {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 24px;
+  @include tablet {
+    font-size: 40px;
+  }
+}
+

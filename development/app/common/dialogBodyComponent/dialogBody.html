@@ -1,0 +1,11 @@
+<div class="dialog-body-block">
+    <div class="dialog-back-layer"
+         data-ng-if="vm.openControl"
+         data-ng-click="vm.closeDialog()">
+        <div class="dialog-container" data-ng-click="$event.stopPropagation()">
+            <ng-transclude></ng-transclude>
+            <span class="icon-icon-15"
+                  data-ng-click="vm.closeDialog()"></span>
+        </div>
+    </div>
+</div>

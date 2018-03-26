@@ -1,0 +1,116 @@
+@import "scss/_mixin";
+
+.editor-layout-block {
+
+  .button-container {
+    padding: 22px 0 0 0;
+    display: none;
+    @include clearfix();
+    @include tablet {
+      display: block;
+      padding: 0;
+    }
+
+    .button-add {
+      cursor: pointer;
+      @include button-add-mobile();
+      float: right;
+      background-color: #00A3FF;
+      color: #fff;
+      @include tablet {
+        @include button-container();
+        margin-top: -71px;
+      }
+      @include laptop {
+        &:hover {
+          background-color: #0092e5;
+        }
+      }
+      & > span:first-child {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 28px;
+        @include tablet {
+          font-size: 26px;
+        }
+      }
+      & > span:last-child {
+        position: relative;
+        vertical-align: middle;
+        padding-left: 10px;
+        display: none;
+        @include tablet {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .layout-container {
+    margin: 0 0 80px 0;
+
+    @include tablet {
+      margin: 48px 0 140px 0;
+    }
+
+    .layout-tree-container {
+      position: relative;
+      padding: 0 0 45px 0;
+
+      @include tablet {
+        padding: 10px 0 45px 0;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 19px;
+        bottom: 0;
+        width: 2px;
+        background-color: #c7d5e9;
+        z-index: -10;
+        @include tablet {
+          left: 36px;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -24px;
+        left: 15px;
+        bottom: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #c7d5e9;
+        z-index: -10;
+        @include tablet {
+          left: 32px;
+        }
+      }
+
+      .layout-tree-end {
+        display: inline-block;
+        position: absolute;
+        left: 15px;
+        bottom: -1px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #c7d5e9;
+        z-index: -10;
+        @include tablet {
+          left: 32px;
+        }
+      }
+
+
+    }
+
+  }
+
+}
+

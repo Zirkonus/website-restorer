@@ -1,0 +1,33 @@
+<div class="visual-editor-block">
+    <div class="editor-control-panel">
+        <div class="wrapper">
+            <div class="editor-heading-container">
+                <!--ui-sref="editor.layout({projectId: vm.state.params.projectId, versionId: vm.state.params.versionId})"-->
+                <div class="return-link-container-div">
+                    <a class="return-link-container" ng-click="vm.exitConfirmDialog()">
+                        <span class="icon-icon-35"></span>
+                    </a>
+                    <div class="title show-tablet">
+                        <h1>[[vm.lang.get('editor_heading_title')]]</h1>
+                    </div>
+                    <a class="return-link-container hide-tablet" ng-click="vm.exitConfirmDialog()">
+                        <h1>[[vm.lang.get('editor_heading_title')]]</h1>
+                    </a>
+                </div>
+
+                <a class="project-domain" href="[[vm.projectData.domain]]" target="_blank">[[vm.projectData.domain]]</a>
+            </div>
+            <div class="control-buttons-container">
+                <div class="button-accept" data-ng-click="vm.savePageRequest();">[[vm.lang.get('editor_visual_button_save')]]</div>
+                <a class="button-reject" ng-click="vm.exitConfirmDialog()">[[vm.lang.get('editor_visual_button_cancel')]]</a>
+            </div>
+        </div>
+    </div>
+    <div class="editor-tab-panel">
+        <div class="wrapper">
+            <div class="editor-container">
+                <textarea ck-editor editor-height="vm.editorHeight" data-ng-model="vm.pageCode" load-internal="vm.loadCkeditorInternal()"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

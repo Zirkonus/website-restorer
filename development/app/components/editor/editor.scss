@@ -1,0 +1,106 @@
+@import "scss/_mixin";
+.editor-block {
+    .editor-control-panel {
+        background-color: #fff;
+        //z-index: -10;
+        .editor-heading-container {
+            position: relative;
+            padding: 20px 0 0 0;
+            @include tablet {
+                padding: 60px 0 0 0;
+            }
+            h1 {
+                display: inline-block;
+                font-size: 28px !important;
+                margin: 0;
+                margin-left: 1px;
+                line-height: 42px;
+                @include tablet {
+                    line-height: 42px;
+                    font-size: 28px;
+                }
+                @include laptop {
+                    transition: $hover-transition-time;
+                    font-size: 28px;
+                }
+            }
+            .return-link-container {
+                float: left;
+                .icon-icon-35 {
+                    display: none;
+                    font-size: 33px;
+                    line-height: 40px;
+                    color: #90a4ae;
+                    margin: 0 10px 1px 0;
+                    &::before {
+                        display: inline-block;
+                        transform: rotate(-90deg);
+                    }
+                    @include tablet {
+                        display: inline-block;
+                    }
+                    @include laptop {
+                        transition: $hover-transition-time;
+                    }
+                }
+                @include laptop {
+                    cursor: pointer;
+                    &:hover {
+                        h1 {
+                            color: #02a2ff;
+                        }
+                        .icon-icon-35 {
+                            color: #02a2ff;
+                        }
+                    }
+                }
+            }
+        }
+        .project-domain {
+            color: #00a3ff;
+            text-decoration: none;
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 28px;
+            font-size: 14px;
+        }
+        .editor-navigation-container {
+            white-space: nowrap;
+            &>li {
+                display: inline-block;
+                &:last-child {
+                    .editor-navigation-item {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .editor-navigation-item {
+                display: inline-block;
+                padding: 9px 33px;
+                font-size: 14px;
+                margin-right: 15px;
+                color: #36444d;
+                cursor: pointer;
+                @include tablet {
+                    padding: 9px 39px;
+                    font-size: 16px;
+                }
+                @include laptop {
+                    &:hover {
+                        color: #90a4ae;
+                    }
+                }
+                &.active {
+                    border-bottom: 2px solid #36444d;
+                    font-weight: 700;
+                    @include laptop {
+                        border-bottom: 3px solid #36444d;
+                        &:hover {
+                            color: #36444d;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

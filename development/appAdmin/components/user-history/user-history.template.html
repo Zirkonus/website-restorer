@@ -1,0 +1,76 @@
+<div class="user-history">
+
+	<div class="wrapper">
+
+		<!-- page title -->
+		<h1 class="admin-title">
+			[[vm.lang.get('admin_user_history_title')]]
+		</h1>
+		<!-- page title end -->
+
+		<div class="user">
+
+			<!--user avatar -->
+			<div class="user-avatar">
+				<span class="icon-icon-33"></span>
+			</div>
+			<!--user avatar end -->
+
+			<!-- user info -->
+			<div class="user-info">
+				<div class="name">
+					<sapn class="value">[[vm.userInfo.username]]</sapn>
+				</div>
+				<div class="email">
+					<span class="label">Email: </span> <sapn class="value">[[vm.userInfo.email]]</sapn>
+				</div>
+				<div class="other-info">
+					<div class="wrap">
+						<span class="label">Credits: </span> <span class="value">[[vm.userInfo.credits]]</span>
+					</div>
+					<div class="wrap">
+						<span class="label">Disk space used: </span>
+						<span class="value">[[vm.userInfo.size]]
+							<sapn data-ng-if="vm.userInfo.size ===0">MB</sapn>
+						</span>
+					</div>
+					<div class="wrap">
+						<span class="label">Projects: </span> <span class="value">[[vm.userInfo.projects]]</span>
+					</div>
+				</div>
+			</div>
+			<!-- user info end -->
+
+			<!-- dropdown -->
+			<dropdown-menu class="dropdown-menu"
+			               config-list="vm.dropdownModel"
+			               cb-param="'true'"
+			               dropdown-open="vm.isOpened">
+				<div class="icon-container"
+				     data-ng-click="vm.isOpened = !vm.isOpened">
+					<span class="icon-icon-14"></span>
+				</div>
+			</dropdown-menu>
+			<!-- dropdown end -->
+
+		</div>
+
+		<!-- user history -->
+		<div class="history">
+			<history-list></history-list>
+		</div>
+		<!-- user history end -->
+
+		<!-- pop up dialog -->
+		<dialog-body open-control="vm.user.isOpened"
+		             close-dialog="vm.user.closeDialog()">
+
+			<user-edit-dialog
+					dialog-type="vm.dialogType"
+					user-info="vm.userInfo"></user-edit-dialog>
+
+		</dialog-body>
+		<!-- pop up dialog end -->
+
+	</div>
+</div>

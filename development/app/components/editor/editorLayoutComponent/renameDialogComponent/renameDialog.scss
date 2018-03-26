@@ -1,0 +1,83 @@
+@import "scss/_mixin";
+
+.rename-dialog-block {
+
+  .rename-dialog-container {
+    width: calc(100vw - 40px);
+    max-width: 500px;
+    padding: 55px 20px 50px 20px;
+    text-align: center;
+    line-height: $line-height-normal;
+    @include tablet {
+      width: calc(100vw - 40px);
+      padding: 75px 75px 75px 75px;
+      max-width: 800px;
+    }
+    @include laptop {
+      width: 800px;
+      padding: 95px 95px 115px 95px;
+    }
+
+    .dialog-title {
+      font-size: 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      text-align: center;
+      color: #00a3ff;
+      margin: 0 0 40px 0;
+      @include tablet {
+        margin: 0 0 50px 0;
+        font-size: 30px;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      margin: 0 0 50px 0;
+      background-color: #fff;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      line-height: $line-height-normal;
+      letter-spacing: 0.6px;
+      color: #90a4ae;
+      padding: 18px 32px;
+      box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.1);
+      resize: none;
+    }
+
+    .button-accept {
+      @include button-container(100px, 48px);
+      font-size: 14px;
+      color: #fff;
+      background-color: #00a3ff;
+      cursor: pointer;
+      @include tablet {
+        @include button-container(164px, 54px);
+      }
+      @include laptop {
+        &:hover {
+          background-color: #0092e5;
+        }
+      }
+    }
+
+    .button-reject {
+      @include button-container(100px, 48px);
+      margin-left: 20px;
+      font-size: 14px;
+      color: #27a8f8;
+      cursor: pointer;
+      @include tablet {
+        @include button-container(164px, 54px);
+        margin-left: 30px;
+      }
+      @include laptop {
+        &:hover {
+          color: #0092e5;
+        }
+      }
+    }
+
+  }
+}

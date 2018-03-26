@@ -1,0 +1,8 @@
+node_modules/
+.idea/
+app/
+appAdmin/
+auth/
+assets/css/style.css
+assets/css/styleAdmin.css
+assets/css/auth.css

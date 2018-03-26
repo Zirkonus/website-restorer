@@ -1,0 +1,14 @@
+<div class="confirm-dialog-block">
+    <dialog-body open-control="vm.settings.openControl"
+                 close-dialog="vm.confirmReject()">
+        <div class="confirm-dialog-container">
+            <div class="confirm-message">[[vm.settings.message]]</div>
+            <div>
+                <div class="button-accept"
+                     data-ng-click="vm.settings.confirmCallback(); vm.confirmReject()">Yes</div>
+                <div class="button-reject"
+                     data-ng-click="vm.confirmReject()">No</div>
+            </div>
+        </div>
+    </dialog-body>
+</div>

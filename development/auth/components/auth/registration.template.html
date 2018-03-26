@@ -1,0 +1,74 @@
+<div class="auth-block">
+	<div class="wrapper">
+
+		<div class="auth-from">
+
+			<h2 class="form-title">
+				Register
+			</h2>
+
+			<form method="POST" action="/register"
+			      data-ng-init="focus = ''">
+
+				<input type="text" style="display: none" name="_token" data-ng-model="vm.token">
+
+				<div class="input-wrapper">
+					<label for="name" class="auth-placeholder"
+					      data-ng-class="focus === 'name'|| vm.user.name.length > 0  ? 'focus' : ''"
+					      data-ng-click="focus = 'name'">Full Name</label>
+					<input type="text" data-ng-focus="focus = 'name'" id="name" name="name" required
+					       data-ng-blur="focus = ''"
+					       data-ng-model="vm.user.name">
+				</div>
+
+				<div class="input-wrapper"
+				     data-ng-class="!vm.user.email ? '' : !vm.emailValid ? 'success' : 'error'">
+					<label for="email" class="auth-placeholder"
+					      data-ng-class="focus === 'email'|| vm.user.email.length > 0 ? 'focus' : ''"
+					      data-ng-click="focus = 'email'">Email</label>
+					<input type="text"  data-ng-focus="focus = 'email'" id="email" name="email" required
+					       data-ng-blur="focus = '';vm.isValid(vm.user.email)"
+					       data-ng-model="vm.user.email">
+					<span class="icon-icon-20 form-icons danger"></span>
+					<span class="icon-icon-19 form-icons success"></span>
+				</div>
+
+				<div class="input-wrapper">
+					<label for="pass" class="auth-placeholder"
+					      data-ng-class="focus === 'pass' || vm.user.pass.length > 0 ? 'focus' : ''"
+					      data-ng-click="focus = 'pass'">Password</label>
+					<input type="password" autocomplete="new-password" id="pass" name="password" required
+					       data-ng-focus="focus = 'pass'"
+					       data-ng-blur="focus = ''"
+					       data-ng-model="vm.user.pass"
+					       data-ng-class="vm.passModel['pass'] ? 'showed' : ''">
+					<span class="icon-icon-11 form-icons pass"
+					      data-ng-class="vm.passModel['pass'] ? 'icon-icon-11' : 'icon-icon-38'"
+					      data-ng-click="vm.showPass('pass')"></span>
+				</div>
+
+				<div class="input-wrapper" data-ng-class="!vm.checkPass() ? 'error' : ''">
+					<label for="pass2" class="auth-placeholder"
+					      data-ng-class="focus === 'pass2' || vm.user.pass2.length > 0 ? 'focus' : ''"
+					      data-ng-click="focus = 'pass2'">Repeat Password</label>
+					<input type="password" autocomplete="new-password" id="pass2" name="password_confirmation" required
+					       data-ng-focus="focus = 'pass2'"
+					       data-ng-blur="focus = ''"
+					       data-ng-model="vm.user.pass2"
+					       data-ng-class="vm.passModel['pass2'] ? 'showed' : ''">
+					<span class="form-icons pass"
+					      data-ng-class="vm.passModel['pass2'] ? 'icon-icon-11' : 'icon-icon-38'"
+					      data-ng-click="vm.showPass('pass2')"></span>
+				</div>
+
+				<button type="submit" data-ng-disabled="!vm.checkPass()">Register</button>
+			</form>
+
+			<p class="auth-text">
+				Already have an account? <a ui-sref="login" class="auth-link">Log In</a>
+			</p>
+
+		</div>
+
+	</div>
+</div>

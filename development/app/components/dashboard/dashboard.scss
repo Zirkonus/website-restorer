@@ -1,0 +1,119 @@
+@import "scss/_mixin";
+
+.dashboard-block {
+
+  .poster-container {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    margin-top: 25px;
+    @include tablet {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      margin-top: 40px;
+      @media (min-height: 890px) {
+        // 720 (poster) + 90 (header)
+        margin-top: calc((100vh - 720px - 90px) / 2);
+      }
+    }
+    text-align: center;
+    .poster {
+      display: inline-block;
+      width: 186px;
+      height: 161px;
+      background-image: url('/assets/img/folder-mobile.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      @include tablet {
+        width: 313px;
+        height: 271px;
+        background-image: url('/assets/img/folder.png');
+      }
+    }
+
+    .button-container {
+      padding-top: 35px;
+      @include tablet {
+        padding-top: 45px;
+      }
+
+      .button-add {
+        @include button-mobile-container();
+        background-color: #735bfb;
+        color: #fff;
+        @include tablet {
+          @include button-container();
+        }
+        @include laptop {
+          &:hover {
+            background-color: #8870e4;
+          }
+        }
+        & > span:first-child {
+          position: relative;
+          display: inline-block;
+          vertical-align: middle;
+          font-size: 26px;
+          margin-top: -2px;
+          @include tablet {
+            margin-top: 0;
+          }
+        }
+        & > span:last-child {
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
+          padding-left: 10px;
+
+        }
+      }
+    }
+
+    .tutorial-list {
+      text-align: left;
+      font-size: 14px;
+      color: #6f7a87;
+      max-width: 880px;
+      margin: 55px auto 0 auto;
+      padding: 0 0 0 12px;
+      @include tablet {
+        font-size: 18px;
+        margin: 80px auto 0 auto;
+        padding: 0 0 0 30px;
+      }
+
+      li {
+        position: relative;
+        list-style-type: none;
+        counter-increment: list;
+        margin: 0 0 20px 0;
+        line-height: 1.5;
+        @include tablet {
+          line-height: 1.76;
+        }
+
+        &:after {
+          content: counter(list) ".";
+          position: absolute;
+          left: -17px;
+          top: 0;
+          width: 0;
+          text-align: right;
+          color: #36444d;
+          @include tablet {
+            left: -30px;
+            width: 16px;
+          }
+        }
+      }
+
+      a {
+        color: #735bfb;
+        font-weight: 700;
+      }
+
+    }
+
+  }
+
+}

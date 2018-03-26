@@ -1,0 +1,292 @@
+@import "scss/_mixin";
+.projects-block {
+    .projects-heading-container {
+        @include clearfix();
+        padding-top: 22px;
+        padding-bottom: 22px;
+        color: #fff;
+        @include tablet {
+            padding-top: 45px;
+            padding-bottom: 40px;
+        }
+        &>h1 {
+            margin: 8px 0 0 0;
+            float: left;
+            @include tablet {
+                margin: 12px 0 0 0;
+            }
+        }
+
+        &>.button-add {
+            @include button-add-mobile();
+            float: right;
+            background-color: #00A3FF;
+            color: #fff;
+            @include tablet {
+                @include button-container();
+            }
+            @include laptop {
+                &:hover {
+                    background-color: #0092e5;
+                }
+            }
+            &>span:first-child {
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 28px;
+                @include tablet {
+                    font-size: 26px;
+                }
+            }
+            &>span:last-child {
+                position: relative;
+                vertical-align: middle;
+                padding-left: 10px;
+                display: none;
+                @include tablet {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+    .projects-list-container {
+        @include clearfix();
+        .project-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 30px;
+            box-shadow: 0px 14px 50px 0px rgba(152, 125, 254, 0.14);
+            transition: $hover-transition-time;
+            @include fade-ng-if();
+            @include tablet {
+                float: left;
+                width: 46.22%;
+                margin-right: 7.55%;
+                margin-bottom: 50px;
+                &:nth-child(2n) {
+                    margin-right: 0;
+                }
+            }
+            @include laptop {
+                width: 29.06%;
+                margin-right: 6.41%;
+                &:nth-child(2n) {
+                    margin-right: 6.41%;
+                }
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+                &:hover {
+                    box-shadow: 0px 14px 50px 0px rgba(152, 125, 254, 0.3);
+                    
+                }
+            }
+        }
+        .project-url-container {
+            display: block;
+            padding: 0 35px;
+            height: 127px;
+            background-color: #9966ff;
+            text-align: center;
+            transition: 0.2s;
+            @include tablet {
+                height: 156px;
+            }
+            &>div {
+                display: block;
+                text-overflow: ellipsis;
+                overflow-x: hidden;
+                vertical-align: middle;
+                color: #feffff;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 54px;
+                white-space: nowrap;
+                @include tablet {
+                    line-height: 74px;
+                    font-size: 18px;
+                }
+            }
+        }
+        .project-manage-project-button {
+                    display: inline-block;
+                    background-color: #00A3FF;
+                    border-radius: 8px;
+                    width: 164px;
+                    height: 54px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 16px;
+                    -webkit-transition: all 0.2s;
+                    -o-transition: all 0.2s;
+                    -moz-transition: all 0.2s;
+                    transition: all 0.2s;
+                    text-align: center;
+                    line-height: 54px;                    
+                    @include laptop {
+                        &:hover {
+                            background-color: #0092e5;
+                        }
+                    }
+                    &>span {
+                        position: relative;
+                        vertical-align: middle;
+                        color: #fff !important;
+                        display: none;
+                        margin: 0;
+                        @include tablet {
+                            display: inline-block;
+                        }
+                    }
+                }
+        .project-info-container {
+            padding: 26px 28px 32px 28px;
+            background-color: #fff;
+            white-space: nowrap;
+            @include tablet {
+                padding: 38px 36px 42px 36px;
+            }
+            &>div {
+                font-size: 14px;
+                color: #36444d;
+                margin-bottom: 12px;
+                @include tablet {
+                    margin-bottom: 19px;
+                    font-size: 16px;
+                }
+                span {
+                    display: inline-block;
+                    margin-right: 8px;
+                    color: #6f7a87;
+                }
+            }
+            .date-version {
+                text-align: center;
+                .status-container {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    margin-top: 10px;
+                    .status {
+                        color: #90a4ae;
+                        margin-top: 5px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            .data-info>span {
+                color: #a6b6be;
+            }
+            .data-info>div {
+                color: #6f7a87;
+                font-size: 10px;
+                margin-top: 4px;
+            }
+            &>.project-manage-project-button-container {
+                text-align: center;
+                margin: 0;
+                &>.project-manage-project-button {
+                    display: inline-block;
+                    background-color: #00A3FF;
+                    border-radius: 8px;
+                    width: 164px;
+                    height: 54px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 16px;
+                    -webkit-transition: all 0.2s;
+                    -o-transition: all 0.2s;
+                    -moz-transition: all 0.2s;
+                    transition: all 0.2s;
+                    text-align: center;
+                    line-height: 54px;
+                    margin-bottom: 20px;
+                    @include laptop {
+                        &:hover {
+                            background-color: #0092e5;
+                        }
+                    }
+                    &>span {
+                        position: relative;
+                        vertical-align: middle;
+                        color: #fff !important;
+                        display: none;
+                        margin: 0;
+                        @include tablet {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+
+            .project-domain {
+                color: #a77aff;
+                text-decoration: underline;
+                display: block;
+                // overflow: hidden;
+            }
+            .project-info-niche {
+                margin-bottom: 25px;
+                text-overflow: ellipsis;
+                overflow-x: hidden;
+                @include tablet {
+                    margin-bottom: 31px;
+                }
+                .no-niche {
+                    opacity: 0.6;
+                }
+            }
+            .project-info-status-container {
+                display: inline-block;
+                margin: 10px 0 0 0;
+            }
+            .project-info-status {
+                font-size: 10px;
+                font-weight: 600;
+                &.status-file {
+                    @include status-pill(#ad74f2, #e7d7f9);
+                }
+                &.status-error {
+                    @include status-pill(#ff0245, #ffccd6);
+                }
+                &.status-upload {
+                    @include status-pill(#53d036, #e5f5d4);
+                }
+                &.status-delete {
+                    @include status-pill(#faa410, #ffebb2);
+                }
+                padding: 8px 14px !important;
+                @include tablet {
+                    padding: 6px 18px !important;
+                    font-size: 12px;
+                }
+                .icon-icon-04 {
+                    display: inline-block;
+                    margin: -1px 0 0 8px;
+                    font-size: 16px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+    .projects-more-container {
+        margin-bottom: 30px;
+        text-align: center;
+        @include tablet {
+            margin-bottom: 50px;
+        }
+        .button-more {
+            @include button-container();
+            background-color: #fff;
+            color: #0099ff;
+            box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.1);
+            cursor: pointer;
+            @include laptop {
+                &:hover {
+                    background-color: #00a3ff;
+                    box-shadow: none;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

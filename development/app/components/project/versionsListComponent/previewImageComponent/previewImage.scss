@@ -1,0 +1,65 @@
+@import "scss/_mixin";
+
+.preview-image-block {
+
+  .dialog-back-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(54, 68, 77, 0.5);
+    transition: $hover-transition-time;
+    @include fade-ng-if();
+    //overflow-y: scroll;
+  }
+
+  .preview-dialog-container {
+    position: fixed;
+    top: 50%;
+    left: 35%;
+    transform: translate(0, -50%);
+    box-shadow: 0px 11px 29px 0px rgba(142, 117, 238, 0.37);
+    line-height: 0;
+    @include desktop {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    img {
+      width: 400px;
+      height: 400px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.ngdialog {
+  padding: 10vh 0 !important;
+  .ngdialog-content {    
+    height: 80vh !important;
+    width: 80vw !important;
+    margin: 0 auto !important;
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      .img-container {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        &::after {
+          content: '';
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+        }
+        &>img {
+          vertical-align: middle;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }      
+    }
+  }
+}

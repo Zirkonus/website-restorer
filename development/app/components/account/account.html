@@ -1,0 +1,39 @@
+<div class="account-block">
+    <div class="wrapper">
+        <div class="account-heading-container">
+            <h1>[[vm.lang.get('account_heading')]]</h1>
+        </div>
+        <div class="account-info-container">
+            <div class="info-field-container">
+                <span class="field-title">
+                    [[vm.lang.get('account_info_field_name')]]
+                </span>
+                <div class="field-container">
+                    <span>[[vm.userData.name]]</span>
+                </div>
+            </div>
+            <div class="info-field-container">
+                <span class="field-title">
+                    [[vm.lang.get('account_info_field_username')]]
+                </span>
+                <div class="field-container">
+                    <span>[[vm.userData.username]]</span>
+                </div>
+            </div>
+            <div class="info-field-container">
+                <span class="field-title">
+                    [[vm.lang.get('account_info_field_credits')]]
+                </span>
+                <div class="field-container-half">
+                    <span>[[vm.userData.credits]]</span>
+                </div>
+            </div>
+            <span class="info-dialog-link"
+                  ng-click="vm.changePassDialogOpen()">[[vm.lang.get('account_info_change_pass_link')]]</span>
+        </div>
+        <div class="account-logout-button-container">
+            <a href="/logout" class="button-logout">[[vm.lang.get('account_logout_button')]]</a>
+        </div>
+        <change-pass-dialog></change-pass-dialog>
+    </div>
+</div>

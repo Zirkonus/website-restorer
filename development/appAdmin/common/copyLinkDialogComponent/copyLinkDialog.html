@@ -1,0 +1,17 @@
+<div class="copy-link-dialog-block">
+    <dialog-body open-control="vm.settings.openControl"
+                 close-dialog="vm.confirmReject()">
+        <div class="copy-link-dialog-container">
+            <div class="dialog-title">Copy link</div>
+            <div class="link-container">
+                <input ng-model="vm.settings.link" ng-readonly="true">
+                <div class="button-copy"
+                     clipboard
+                     text="vm.settings.link"
+                     data-ng-click="vm.confirmReject()">Copy</div>
+
+            </div>
+            <a data-ng-href="[[vm.settings.link]]" target="_blank">Open in  new window</a>
+        </div>
+    </dialog-body>
+</div>

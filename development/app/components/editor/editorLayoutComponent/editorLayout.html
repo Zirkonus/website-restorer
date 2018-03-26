@@ -1,0 +1,25 @@
+<div class="editor-layout-block">
+    <div class="button-container">
+        <a class="button-add" data-ng-click="vm.addPageDialogOpen()">
+            <span>+</span><span>[[vm.lang.get('editor_layout_add_button')]]</span>
+        </a>
+    </div>
+    <div class="layout-container"
+         infinite-scroll="vm.listLoadMore()"
+         infinite-scroll-disabled="vm.listLimit >= vm.layoutListData.children.length">
+        <menu-expander root-item="true"
+                       menu-title="vm.layoutListData.title"
+                       menu-expander-config="vm.rootMenuExpanderConfig"
+                       param-data="{dataObj: vm.layoutListData}"></menu-expander>
+        <div class="layout-tree-container">
+            <list-tree list-data="vm.layoutListData.children"
+                       current-level="1"
+                       menu-expander-config="vm.itemMenuExpanderConfig"
+                       list-limit="vm.listLimit"></list-tree>
+            <span class="layout-tree-end"></span>
+        </div>
+    </div>
+    <rename-dialog></rename-dialog>
+    <copy-link-layout-dialog></copy-link-layout-dialog>
+    <add-page-dialog layout-list-data="vm.layoutListData"></add-page-dialog>
+</div>

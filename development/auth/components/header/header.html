@@ -1,0 +1,19 @@
+<div class="header-block">
+    <div class="wrapper">
+        <div class="logo-container">
+            <a ui-sref="start" class="logo"></a>
+        </div>
+        <div class="menu-icon-container">
+            <!--<menu-switcher menu-state="vm.menu"></menu-switcher>-->
+        </div>
+        <div class="navigation-container" data-ng-class="{'menu-mobile-opened': vm.menu.opened}">
+            <div data-ng-if="vm.state.includes('registration')">
+                Already have an account? <a ui-sref="login" class="auth-link">Log In</a>
+            </div>
+
+            <div data-ng-if="vm.state.includes('login')">
+                Don’t have any account?  <a ui-sref="registration" class="auth-link">Register</a>
+            </div>
+        </div>
+    </div>
+</div>

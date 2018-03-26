@@ -1,0 +1,98 @@
+@import "scss/_mixin";
+
+.user-dialog-wrapper {
+  position: relative;
+  padding: 124px 160px;
+  background: #ebeff3;
+
+  h3.dialog-header {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    color: #00a3ff;
+    font-family: "Montserrat Medium";
+    margin: 0;
+    margin-bottom: 65px;
+  }
+
+  form.dialog-form {
+    position: relative;
+    width: 560px;
+
+    label, input, select {
+      position: relative;
+      display: block;
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 16px;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    label {
+      line-height: 16px;
+      color: #6f7a87;
+    }
+
+    input, select {
+      height: 54px;
+      line-height: 54px;
+      background: #fff;
+      border: none;
+      padding: 0 32px;
+      box-shadow: 0 0 10px rgba(152, 125, 254, 0.1);
+    }
+
+    .local-wrapper {
+      position: relative;
+      @include clearfix();
+      .left {
+        position: relative;
+        float: left;
+        width: 48%;
+      }
+      & div:first-child {
+        margin-right: 4%;
+      }
+    }
+
+    .button-wrapper {
+      position: relative;
+      text-align: center;
+      margin-top: 64px;
+    }
+
+    .save-btn, .cancel-btn {
+      position: relative;
+      display: inline-block;
+      width: 164px;
+      font-size: 16px;
+      line-height: 54px;
+      font-family: Montserrat;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+    .save-btn {
+      color: #fff;
+      background: #00a3ff;
+      margin-right: 94px;
+      &:hover {
+        background: #0092e5;
+      }
+    }
+    .cancel-btn {
+      color: #00a3ff;
+      background: transparent;
+      &:hover {
+        color: #0092e5;
+      }
+    }
+  }
+}

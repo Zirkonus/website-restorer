@@ -1,0 +1,13 @@
+<div class="dropdown-menu-block">
+    <ng-transclude></ng-transclude>
+    <div class="dropdown-list" data-ng-class="{'open': vm.dropdownOpen}">
+        <div class="dropdown-list-heading">Actions</div>
+        <ul>
+            <li data-ng-repeat="menuItem in vm.configList"
+                data-ng-click="menuItem.callback(vm.cbParam)">
+                <span class="dropdown-item-icon" data-ng-class="menuItem.icon"></span>
+                <span class="dropdown-item-text">[[menuItem.title]]</span>
+            </li>
+        </ul>
+    </div>
+</div>

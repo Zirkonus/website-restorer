@@ -1,0 +1,154 @@
+<form class="project-form-block"
+      name="projectForm"
+      novalidate
+      data-ng-submit="vm.formSubmit()">
+    <div class="form-field-container">
+        <label>
+            <span class="field-title">
+                [[vm.lang.get('project_form_field_domain_title')]]
+            </span>
+            <div class="field-input-container"
+                 data-ng-class="{'field-error': vm.isShowFieldError(projectForm.domain) && !vm.originEditDisable,
+                                'field-success': vm.isShowFieldSuccess(projectForm.domain) && !vm.originEditDisable}">
+                <input type="text"
+                       name="domain"
+                       ng-model="vm.formData.domain"
+                       ng-focus="vm.setFocusedFieldName(projectForm.domain.$name);"
+                       ng-blur="vm.setFocusedFieldName(''); vm.checkDomainField(projectForm)"
+                       ng-disabled="vm.originEditDisable"
+                       required>
+                <!--field-async-validation-->
+            </div>
+        </label>
+    </div>
+    <div class="form-field-container">
+        <label>
+            <span class="field-title">
+                [[vm.lang.get('project_form_field_niche_title')]]
+            </span>
+            <div class="field-input-container"
+                 data-ng-class="{'field-error': vm.isShowFieldError(projectForm.niche),
+                                'field-success': vm.isShowFieldSuccess(projectForm.niche)}">
+                <input type="text"
+                       name="niche"
+                       ng-model="vm.formData.niche"
+                       ng-focus="vm.setFocusedFieldName(projectForm.niche.$name)"
+                       ng-blur="vm.setFocusedFieldName('')">
+                <span class="field-letter-limit">[[vm.useFieldLetterLimit()]]</span>
+            </div>
+        </label>
+    </div>
+    <div class="form-field-container">
+        <label>
+            <span class="field-title">
+                [[vm.lang.get('project_form_field_deep_level_title')]]
+            </span>
+            <div class="field-input-container"
+                 data-ng-class="{'field-error': vm.isShowFieldError(projectForm.fetch_level_deep) && !vm.originEditDisable,
+                                'field-success': vm.isShowFieldSuccess(projectForm.fetch_level_deep) && !vm.originEditDisable}">
+                <input type="text"
+                       name="fetch_level_deep"
+                       ng-if="vm.originEditDisable"
+                       ng-model="vm.formData.fetch_level_deep"
+                       ng-focus="vm.setFocusedFieldName(projectForm.fetch_level_deep.$name)"
+                       ng-blur="vm.setFocusedFieldName('')"
+                       ng-pattern="/^\d+$/"
+                       ng-disabled="vm.originEditDisable"
+                       required>
+                <select name="fetch_level_deep"
+                        ng-if="!vm.originEditDisable"
+                        ng-focus="vm.setFocusedFieldName(projectForm.fetch_level_deep.$name)"
+                        ng-blur="vm.setFocusedFieldName('')"
+                        ng-model="vm.formData.fetch_level_deep"
+                        ng-disabled="vm.originEditDisable"
+                        required>
+                    <option class="test" ng-repeat="option in ['1', '2', '3']" value="[[option]]">[[option]]</option>
+                </select>
+            </div>
+        </label>
+    </div>
+    <div class="form-field-container">
+        <label>
+            <span class="field-title">
+                [[vm.lang.get('project_form_field_ftp_address_title')]]
+            </span>
+            <div class="field-input-container"
+                 data-ng-class="{'field-error': vm.isShowFieldError(projectForm.ftp_address),
+                                'field-success': vm.isShowFieldSuccess(projectForm.ftp_address)}">
+                <input type="text"
+                       name="ftp_address"
+                       ng-model="vm.formData.ftp_address"
+                       ng-focus="vm.setFocusedFieldName(projectForm.ftp_address.$name)"
+                       ng-blur="vm.setFocusedFieldName('')">
+            </div>
+        </label>
+    </div>
+    <div class="form-field-container">
+        <label>
+            <span class="field-title">
+                [[vm.lang.get('project_form_field_ftp_port_title')]]
+            </span>
+            <div class="field-input-container"
+                 data-ng-class="{'field-error': vm.isShowFieldError(projectForm.ftp_port),
+                                'field-success': vm.isShowFieldSuccess(projectForm.ftp_port)}">
+                <input type="text"
+                       name="ftp_port"
+                       ng-model="vm.formData.ftp_port"
+                       ng-focus="vm.setFocusedFieldName(projectForm.ftp_port.$name)"
+                       ng-blur="vm.setFocusedFieldName('')">
+            </div>
+        </label>
+    </div>
+    <div class="form-field-container">
+        <label>
+            <span class="field-title">
+                [[vm.lang.get('project_form_field_ftp_folder_title')]]
+            </span>
+            <div class="field-input-container"
+                 data-ng-class="{'field-error': vm.isShowFieldError(projectForm.ftp_folder),
+                                'field-success': vm.isShowFieldSuccess(projectForm.ftp_folder)}">
+                <input type="text"
+                       name="ftp_folder"
+                       ng-model="vm.formData.ftp_folder"
+                       ng-focus="vm.setFocusedFieldName(projectForm.ftp_folder.$name)"
+                       ng-blur="vm.setFocusedFieldName('')">
+            </div>
+        </label>
+    </div>
+    <div class="form-field-container">
+        <label>
+            <span class="field-title">
+                [[vm.lang.get('project_form_field_ftp_username_title')]]
+            </span>
+            <div class="field-input-container"
+                 data-ng-class="{'field-error': vm.isShowFieldError(projectForm.ftp_username),
+                                'field-success': vm.isShowFieldSuccess(projectForm.ftp_username)}">
+                <input type="text"
+                       name="ftp_username"
+                       ng-model="vm.formData.ftp_username"
+                       ng-focus="vm.setFocusedFieldName(projectForm.ftp_username.$name)"
+                       ng-blur="vm.setFocusedFieldName('')">
+            </div>
+        </label>
+    </div>
+    <div class="form-field-container">
+        <label>
+            <span class="field-title">
+                [[vm.lang.get('project_form_field_ftp_password_title')]]
+            </span>
+            <div class="field-input-container"
+                 data-ng-class="{'field-error': vm.isShowFieldError(projectForm.ftp_password),
+                                'field-success': vm.isShowFieldSuccess(projectForm.ftp_password)}">
+                <input type="text"
+                       ng-model="vm.formData.ftp_password"
+                       name="ftp_password"
+                       ng-focus="vm.setFocusedFieldName(projectForm.ftp_password.$name)"
+                       ng-blur="vm.setFocusedFieldName('')">
+            </div>
+        </label>
+    </div>
+    <div class="form-buttons-container">
+        <input class="button-save" type="submit" ng-disabled="projectForm.$invalid" ng-value="vm.lang.get('project_form_button_submit')">
+        <a ng-click="vm.exitProjectForm()" class="button-cancel">[[vm.lang.get('project_form_button_cancel')]]</a>
+    </div>
+</form>

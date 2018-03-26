@@ -1,0 +1,136 @@
+@import "scss/_mixin";
+
+.project-form-block{
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+
+  .form-field-container {
+    margin: 0 0 25px 0;
+
+    .field-title {
+      display: inline-block;
+      font-size: 16px;
+      color: #6f7a87;
+      margin: 0 0 10px 0;
+    }
+
+    .field-input-container {
+      position: relative;
+
+      input {
+        display: block;
+        width: 100%;
+        height: 54px;
+        padding: 0 60px 0 30px;
+        background-color: #fff;
+        border: none;
+        outline: none;
+        box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.1);
+        font-size: 16px;
+        color: #36444d;
+        transition: $hover-transition-time;
+        &:focus {
+          box-shadow: 0px 0px 40px 0px rgba(115, 91, 251, 0.2);
+        }
+        //&.ng-dirty.ng-valid {
+        //  background-color: #eef9ff;
+        //  color: #0099ff;
+        //  box-shadow: 0px 4px 10px 0px rgba(152, 125, 254, 0.1);
+        //}
+        //&[disabled] {
+        //  background-color: #dbe4f1;
+        //  color: #90a4ae;
+        //  box-shadow: 0px 14px 50px 0px rgba(197, 213, 235, 0.2);
+        //}
+      }
+
+      &.field-error {
+        input {
+          color: #f65b58;
+          background-color: #f3e7e6;
+          box-shadow: 0px 4px 10px 0px rgba(152, 125, 254, 0.1);
+        }
+
+        &::before {
+          position: absolute;
+          right: 22px;
+          top: 50%;
+          transform: translate(0, -50%);
+          font-family: 'icomoon';
+          content: '\e913';
+          font-size: 18px;
+          color: #ff0245;
+        }
+      }
+
+      &.field-success {
+        input {
+          background-color: #eef9ff;
+          color: #0099ff;
+          box-shadow: 0px 4px 10px 0px rgba(152, 125, 254, 0.1);
+        }
+
+        &::before {
+          position: absolute;
+          right: 22px;
+          top: 50%;
+          transform: translate(0, -50%);
+          font-family: 'icomoon';
+          content: '\e912';
+          font-size: 18px;
+          color: #27a8f8;
+        }
+      }
+    }
+
+  }
+
+  .form-buttons-container {
+    margin: 65px 0 0 0;
+    text-align: center;
+
+    .button-save {
+      @include button-container(100px, 48px);
+      font-size: 14px;
+      color: #fff;
+      background-color: #00a3ff;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      transition: $hover-transition-time;
+      @include tablet {
+        @include button-container(164px, 54px);
+      }
+      @include laptop {
+        &:hover {
+          background-color: #0092e5;
+        }
+      }
+      &[disabled] {
+        background-color: #c2e1f1;
+        cursor: default;
+      }
+    }
+
+    .button-cancel {
+      @include button-container(100px, 48px);
+      margin-left: 20px;
+      font-size: 14px;
+      color: #27a8f8;
+      cursor: pointer;
+      @include tablet {
+        @include button-container(164px, 54px);
+        margin-left: 65px;
+      }
+      @include laptop {
+        &:hover {
+          color: #0092e5;
+        }
+      }
+    }
+
+  }
+
+
+}

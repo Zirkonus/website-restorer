@@ -1,0 +1,80 @@
+<div class="header-block">
+    <div class="wrapper">
+        <div class="logo-container">
+            <a ui-sref="dashboard" class="logo"></a>
+        </div>
+        <div class="menu-icon-container">
+            <menu-switcher menu-state="vm.menu"></menu-switcher>
+        </div>
+        <div class="navigation-container" data-ng-class="{'menu-mobile-opened': vm.menu.opened}">
+            <!-- Mobile username + avatar block -->
+            <div class="user-fullname-mobile-container">
+                <a ui-sref="account"
+                   data-ng-click="vm.menu.opened = false">
+                    <span class="user-avatar">[[vm.userData.avatarStr]]</span>
+                    <span class="user-account">[[vm.userData.name]] [[vm.userData.username]]</span>
+                </a>
+            </div>
+            <!-- User avatar with dropdown -->
+            <div class="user-avatar-container"
+                 click-outside-closest="vm.userDropdownOpened = false"
+                 closest-selector=".dropdown-menu">
+                <dropdown-menu class="dropdown-menu"
+                               data-ng-class="{'opened': vm.userDropdownOpened}"
+                               config-list="vm.userDropdownConfig"
+                               dropdown-open="vm.userDropdownOpened">
+                        <span class="user-avatar" ng-click="vm.userDropdownOpened = !vm.userDropdownOpened">
+                            [[vm.userData.avatarStr]]
+                            <div class="user-dropdown-icon">
+                                <span class="icon-icon-49"></span>
+                            </div>
+                        </span>
+                </dropdown-menu>
+            </div>
+            <!-- Coins block -->
+            <div class="user-coin-container">
+                <span class="coins">[[vm.userData.credits]]</span>
+                <span class="icon-icon-22"></span>
+            </div>
+            <!-- Notification block -->
+            <a ui-sref="projects({'#': 'history'})"
+               class="notification"
+               ng-class="{'active': vm.notificationChecker.notificationFlag}"
+               data-ng-click="vm.menu.opened = false">
+                <span class="icon-icon-01"></span>
+                <span class="text">[[vm.lang.get('header_link_notification')]]</span>
+            </a>
+            <!-- Dashboard link -->
+            <a ui-sref="dashboard"
+               ui-sref-active="active"
+               class="nav-link link-pull-left"
+               data-ng-click="vm.menu.opened = false">
+                <span class="icon-icon-37"></span>
+                <span class="text">[[vm.lang.get('header_link_dashboard')]]</span>
+            </a>
+            <!-- My Projects link -->
+            <a ui-sref="projects"
+               ui-sref-active="active"
+               class="nav-link link-pull-left"
+               data-ng-click="vm.menu.opened = false">
+                <span class="icon-icon-03"></span>
+                <span class="text">[[vm.lang.get('header_link_my_projects')]]</span>
+            </a>
+            <!-- My Account link -->
+            <a ui-sref="account"
+               ui-sref-active="active"
+               class="nav-link account-link link-pull-left"
+               data-ng-click="vm.menu.opened = false">
+                <span class="icon-icon-10"></span>
+                <span class="text">[[vm.lang.get('header_link_my_account')]]</span>
+            </a>
+            <!-- Logout link -->
+            <a href="/logout"
+               class="nav-link logout-link"
+               data-ng-click="vm.menu.opened = false">
+                <span class="icon-icon-48"></span>
+                <span class="text">[[vm.lang.get('header_link_logout')]]</span>
+            </a>
+        </div>
+    </div>
+</div>

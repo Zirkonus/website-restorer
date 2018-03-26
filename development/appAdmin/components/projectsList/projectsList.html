@@ -1,0 +1,38 @@
+<div class="projects-block">
+    <div class="wrapper">
+        <div class="projects-heading-container">
+            <h1>[[vm.lang.get('dashboard_projects_heading')]]</h1>
+            <a ui-sref="projectAdd" class="button-add">
+                <span>+</span><span>[[vm.lang.get('dashboard_projects_button_new')]]</span>
+            </a>
+        </div>
+        <div class="projects-list-container">
+            <a ui-sref="project.all({id: project.id})"
+               class="project-item"
+               data-ng-repeat="project in vm.projectsListData | orderBy : vm.sortByDate : true | limitTo:vm.projectsLimit">
+                <div class="project-url-container">
+                    <div>[[project.domain]]</div>
+                </div>
+                <div class="project-info-container">
+                    <div>
+                        <span>[[vm.lang.get('dashboard_projects_info_version')]]</span>[[project.sites_total]]
+                    </div>
+                    <div>
+                        <span>[[vm.lang.get('dashboard_projects_info_sites')]]</span>[[project.sites_uploaded]]
+                    </div>
+                    <div>
+                        <span>[[vm.lang.get('dashboard_projects_info_data')]]</span>[[project.files_size]] Mb
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="projects-more-container">
+            <div class="button-more"
+                 data-ng-click="vm.increaseLimit()">[[vm.lang.get('button_more')]]</div>
+        </div>
+        <div class="history-heading-container">
+            <h1>[[vm.lang.get('dashboard_history_heading')]]</h1>
+        </div>
+        <history-list list-data="vm.historyList"></history-list>
+    </div>
+</div>

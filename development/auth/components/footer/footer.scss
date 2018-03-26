@@ -1,0 +1,73 @@
+@import "scss/_mixin";
+
+footer.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 22px 0;
+  background: #fff;
+  box-shadow: 0 0 5px #777;
+  font-family: "Open Sans", sans-serif;
+  color: #6f7a87;
+  @include tablet {
+    padding: 70px 0;
+  }
+
+
+  .footer-text {
+    position: relative;
+    float: none;
+    margin: 0;
+    text-align: center;
+    font-size: 10px;
+    @include tablet {
+      float: left;
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+
+  .footer-menu {
+    position: relative;
+    float: none;
+    list-style: none;
+    text-align: justify;
+    &:before{
+      content: '';
+      display: block;
+      width: 100%;
+      height: 0;
+    }
+    &:after {
+      width: 100%;
+      height: 0;
+      visibility: hidden;
+      overflow: hidden;
+      content: '';
+      display: inline-block;
+    }
+    @include tablet {
+      float: right;
+    }
+
+    .item {
+      position: relative;
+      display: inline-block;
+      float: none;
+      margin: 0;
+      cursor: pointer;
+      font-size: 14px;
+      @include tablet {
+        display: block;
+        float: left;
+        margin: 0;
+        margin-left: 45px;
+        font-size: 18px;
+      }
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+}

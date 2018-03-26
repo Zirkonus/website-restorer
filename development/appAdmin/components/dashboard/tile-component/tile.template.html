@@ -1,0 +1,14 @@
+<div class="tile">
+	<div class="tile-text-wrapper"
+	     data-ng-class="[[vm.tileIcon]]"
+	     data-ng-style="{ color : [[vm.iconColor]] }">
+		<h3 class="tile-value">
+			[[vm.tileValue]]
+			<span class="unit"
+			      data-ng-if="vm.tileUnit">[[vm.tileUnit]]</span>
+		</h3>
+		<h5 class="tile-name">
+			[[vm.tileName]]
+		</h5>
+	</div>
+</div>

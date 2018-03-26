@@ -1,0 +1,20 @@
+<div class="rename-dialog-block">
+    <dialog-body open-control="vm.settings.openControl"
+                 close-dialog="vm.confirmReject()">
+        <div class="rename-dialog-container">
+            <div class="dialog-title">[[vm.lang.get('editor_layout_rename_dialog_title')]]</div>
+            <textarea data-ng-model="vm.settings.title"
+                      textarea-auto-grow
+                      min-height="54"
+                      max-height="146"></textarea>
+            <div>
+                <div class="button-accept"
+                     data-ng-click="vm.settings.confirmCallback(vm.settings.title); vm.confirmReject()">
+                    [[vm.lang.get('editor_layout_rename_dialog_button_confirm')]]
+                </div>
+                <div class="button-reject"
+                     data-ng-click="vm.confirmReject()">[[vm.lang.get('editor_layout_rename_dialog_button_reject')]]</div>
+            </div>
+        </div>
+    </dialog-body>
+</div>

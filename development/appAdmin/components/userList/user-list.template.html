@@ -1,0 +1,87 @@
+<div class="user-list">
+
+	<div class="wrapper">
+
+		<div class="clearfix">
+			<!-- page title -->
+			<h1 class="admin-title p-l">
+				[[vm.lang.get('admin_user_list_title')]]
+			</h1>
+			<!-- page title end -->
+
+			<button class="add-new-user"
+			        data-ng-click="vm.clickAdd()">
+				<span>Add New User</span>
+			</button>
+		</div>
+
+		<table class="user-list-table">
+
+			<thead>
+			<tr>
+				<th></th>
+				<th>NAME</th>
+				<th>EMAIL</th>
+				<th class="right-cell">CREDITS</th>
+				<th class="right-cell">DISK SPACE USED</th>
+				<th class="right-cell">PROJECTS</th>
+				<th></th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<tr data-ng-init="over = false"
+			    data-ng-mouseover="over = true"
+			    data-ng-mouseleave="over = false"
+			    data-ng-repeat="user in vm.userList track by $index">
+				<td class="initials">
+					<span>[[vm.getInitials(user.username)]]</span>
+				</td>
+				<td class="name">
+					[[user.username]]
+				</td>
+				<td class="email">
+					[[user.email]]
+				</td>
+				<td class="credits right-cell">
+					[[user.credits]]
+				</td>
+				<td class="disk-space  right-cell" title="[[user.size_in_bite]] bytes">
+					[[user.size]]<span data-ng-if="user.size === 0"> MB</span>
+				</td>
+				<td class="right-cell projects">
+					[[user.projects]]
+				</td>
+				<td class="btns">
+					<div class="btns-wrapper" data-ng-show="over">
+						<span class="o-btn purple icon-icon-31"
+						      data-ng-click="vm.location.path('user/'+ [[user.id]])"></span>
+						<span class="o-btn green icon-icon-30"
+						      data-ng-click="vm.clickEdit(user)"></span>
+						<span class="o-btn red icon-icon-26"
+						      data-ng-click="vm.deleteUser(user)"></span>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+
+		</table>
+
+		<pagination-tpl page-num="vm.pageNum"
+		                users-count="vm.usersCount"></pagination-tpl>
+
+	</div>
+
+	<!-- pop up edit dialog -->
+	<dialog-body open-control="vm.user.isOpened"
+	             close-dialog="vm.user.closeDialog()">
+
+		<user-edit-dialog
+				dialog-type="vm.dialogType"
+				user-info="vm.currUser"
+				callback="vm.getUsersList()"></user-edit-dialog>
+
+	</dialog-body>
+	<!-- pop up edit dialog end -->
+
+</div>

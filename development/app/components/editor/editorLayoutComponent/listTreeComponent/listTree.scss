@@ -1,0 +1,36 @@
+@import "scss/_mixin";
+
+.list-tree-block {
+
+  ul > li {
+    //margin-top: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .tree-branch-position {
+    line-height: 76px;
+    height: 76px;
+    z-index: 10;
+    @include tablet {
+      line-height: 80px;
+      height: 80px;
+    }
+    & > * {
+      vertical-align: bottom;
+    }
+  }
+
+
+  .list-item-container {
+    @include clearfix();
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+}
+

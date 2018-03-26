@@ -1,0 +1,54 @@
+@import "scss/_mixin";
+
+.dropdown-menu-block {
+
+  .dropdown-list {
+    position: absolute;
+    top: 0;
+    right: 22px; //15px;
+    width: 194px;
+    //display: none;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    box-shadow: 0px 8px 39px 0px rgba(142, 117, 238, 0.37);
+    //box-shadow: 0px 11px 29px 0px rgba(142, 117, 238, 0.37);
+    z-index: 50;
+    &.open {
+      display: block;
+    }
+    .dropdown-list-heading {
+      height: 40px;
+      @include line-height-local(40px);
+      text-align: center;
+      font-size: 16px;
+      color: #00a3ff;
+      border-bottom: 1px solid #a9dcfc;
+    }
+    ul li {
+      height: 41px;
+      @include line-height-local(41px);
+      color: #7793a1;
+      border-bottom: 1px solid #dae2e5;
+      cursor: pointer;
+      transition: $hover-transition-time;
+      &:last-child {
+        border-bottom: none;
+      }
+      @include laptop {
+        &:hover {
+          color: #02a2ff;
+        }
+      }
+      .dropdown-item-icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 18px 0 23px;
+        font-size: 20px;
+      }
+      .dropdown-item-text {
+        font-size: 14px;
+        vertical-align: middle;
+      }
+    }
+  }
+}

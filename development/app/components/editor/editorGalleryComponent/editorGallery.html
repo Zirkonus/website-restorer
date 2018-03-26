@@ -1,0 +1,49 @@
+<div class="editor-gallery-block"
+     click-outside-closest="vm.dropdownMenuOpenIndex = null"
+     closest-selector=".gallery-item">
+    <div class="button-container">
+        <button class="button-add"
+                type="file"
+                ngf-select="vm.uploadImage($file, $invalidFiles)"
+                accept="image/*">
+            <span>+</span><span>[[vm.lang.get('editor_images_add_button')]]</span>
+        </button>
+    </div>
+    <div class="gallery-container"
+         infinite-scroll="vm.listLoadMore()"
+         infinite-scroll-distance="1"
+         infinite-scroll-disabled="vm.listLimit >= vm.imagesListData.length">
+        <div class="gallery-col" data-ng-repeat="image in vm.imagesListData | limitTo: vm.listLimit">
+            <div class="gallery-item"
+                 data-ng-click="vm.dropdownOpen($index)"
+                 data-ng-style="{backgroundImage: 'url(' + vm.imageBaseUrl + image.id + ')'}"
+                 image-zoomer
+                 image-width="image.width"
+                 image-height="image.height">
+                <div class="control-layer"
+                     data-ng-class="{'open': vm.dropdownMenuOpenIndex === $index}">
+                    <div class="control-container">
+                        <span class="icon-icon-31"
+                              data-ng-click="vm.viewImageNewTab({id: image.id})"></span>
+                        <span class="icon-icon-29"
+                              data-ng-click=""></span>
+                        <span class="icon-icon-28"
+                              data-ng-click="vm.copyLink({link: vm.imageBaseUrl + image.id})"></span>
+                        <span class="icon-icon-26"
+                              data-ng-click="vm.deleteImageConfirm({id: image.id, index: $index})"></span>
+                    </div>
+                    <dropdown-menu class="dropdown-menu"
+                                   data-ng-class="{'opened': vm.dropdownMenuOpenIndex === $index}"
+                                   config-list="vm.dropdownConfig"
+                                   cb-param="{id: image.id, index: $index}"
+                                   dropdown-open="vm.dropdownMenuOpenIndex === $index">
+                        <div class="icon-container">
+                            <span class="icon-icon-14"></span>
+                        </div>
+                    </dropdown-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+    <copy-link-gallery-dialog></copy-link-gallery-dialog>
+</div>
